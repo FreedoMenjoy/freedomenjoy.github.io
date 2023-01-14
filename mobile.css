@@ -27,9 +27,10 @@ header {
 nav {
    position: absolute;
    background-color: #3D4852;
-   top:70px;
-   right:0;
-   width: 10%;
+   top: 70px;
+    left: auto;
+   right: 0;
+   width: 50%;
 }
 nav ul {
    list-style-type: none;
