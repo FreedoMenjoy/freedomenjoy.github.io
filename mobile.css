@@ -54,9 +54,7 @@ nav ul li a:hover, nav ul li a:focus {
    max-height: 200px;
    padding: 15px 0;
    transition: all 0.5s;
-}
-@media (min-width: 768px) {
-}
+} 
 @media (min-width: 768px) {
   .menu-icon {
      display: none;
