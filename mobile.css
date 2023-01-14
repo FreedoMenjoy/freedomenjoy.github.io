@@ -4,7 +4,7 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   font-family: 'Kanit', sans-serif;
+   font-family: 'Oswald', sans-serif;
 }
 header {
    height: 70px;
@@ -33,6 +33,9 @@ nav {
 }
 nav ul {
    list-style-type: none;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.5s;
 }
 nav ul li {
    padding: 0 15px;
@@ -47,14 +50,16 @@ nav ul li a {
 nav ul li a:hover, nav ul li a:focus {
    color: #878787;
 }
+.menu-outfit {
+        height: 50px;
+}
 #checkbox {
    display: none;
 }
 #checkbox:checked ~ nav ul {
    max-height: 200px;
    padding: 15px 0;
-   transition: all 0.5s;
-} 
+}
 @media (min-width: 768px) {
   .menu-icon {
      display: none;
@@ -75,4 +80,8 @@ nav ul li a:hover, nav ul li a:focus {
     display: inline-flex;
     padding-left: 20px;
   }
+@media (min-width: 768px) {
+  .menu-outfit {
+        height: 0px;
+    }
 }
