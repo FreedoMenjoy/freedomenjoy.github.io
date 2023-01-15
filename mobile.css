@@ -55,7 +55,7 @@ nav ul li a {
 }
 }
 nav ul li a:hover, nav ul li a:focus {
-   color: #878787;
+    color: #878787;
 }
 .maintext {
         color: white;
@@ -125,24 +125,6 @@ nav ul li a:hover, nav ul li a:focus {
         width: 340px;
     }
 }
-@media (max-width: 353px) {
-    .maintext {
-        font-size: 20px;
-        height: 25px;
-        margin-top: 12px;
-        padding: inherit;
-        width: 370px;
-    }
-}
-@media (max-width: 328px) {
-    .maintext {
-        font-size: 18px;
-        height: 25px;
-        margin-top: 12px;
-        padding: inherit;
-        width: 370px;
-    }
-}
 @media (max-width: 767px) {
     .maintext {
         font-size: 23px;
@@ -154,36 +136,415 @@ nav ul li a:hover, nav ul li a:focus {
         left: 65px;
     }
 }
+@media (max-width: 405px) {
+    .maintext {
+        font-size: 20px;
+        height: 25px;
+        margin-top: 12px;
+        padding: inherit;
+        width: 200px;
+    }
+}
 .vk {
-    
+    margin: auto;
     background-image: url(vklogo.png);
-    background-position: left;
-    display: inline-block;
     background-size: cover;
     width: 50px;
     height: 50px;
 }
-@media (min-width: 768px) {
-    .vk {
-        width: 70px;
-        height: 70px;
-    }
-}
-.contact {
-    display: inline-block;
+
+.contact1 {
+    display: block;
+    font-weight: bold;
     color: black;
+    text-align: center;
+    margin: 10px 0;
+}
+.contact11 {
+    margin: auto;
+    display: flex;
+    color: black;
+    text-align: center;
+    width: 150px;
 }
 .post {
+    margin: auto;
     background-image: url(post.png);
-    background-position: left;
-    display: inline-block;
     background-size: cover;
     width: 50px;
     height: 50px;
 }
+.contdan1 {
+    display: block;
+}
+.svyaz {
+    margin-top: 30px;
+    text-align: center;
+}
+.contdan2 {
+    margin: 0 50px;
+    display: inline-block;
+}
+.visited {
+    margin-top: 10px;
+    text-align: center;
+    color: blue;
+}
+@media (min-width: 320px) {
+.vk {
+    margin: auto;
+    background-image: url(vklogo.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+.contact1 {
+    font-size: 17px;
+    display: block;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin: 10px 0;
+}
+.contact11 {
+    font-size: 14px;
+    margin: auto;
+    display: flex;
+    color: black;
+    text-align: center;
+    width: 150px;
+}
+.post {
+    margin: auto;
+    background-image: url(post.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+    .svyaz {
+    margin-top: 18px;
+    text-align: center;
+}
+.contdan2 {
+    margin: 0 50px 30px 50px;
+    display: inline-block;
+}
+.visited {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    color: blue;
+}
+}
+@media (min-width: 460px) {
+.vk {
+    margin: auto;
+    background-image: url(vklogo.png);
+    background-size: cover;
+    width: 75px;
+    height: 75px;
+}
+.contact1 {
+    font-size: 19px;
+    display: block;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin: 10px 0;
+}
+.contact11 {
+    font-size: 16px;
+    margin: auto;
+    display: flex;
+    color: black;
+    text-align: center;
+    width: 150px;
+}
+.post {
+    margin: auto;
+    background-image: url(post.png);
+    background-size: cover;
+    width: 75px;
+    height: 75px;
+}
+    .svyaz {
+    margin-top: 18px;
+    text-align: center;
+}
+.contdan2 {
+    margin: 0 50px 30px 50px;
+    display: inline-block;
+}
+.visited {
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    color: blue;
+}
+}
 @media (min-width: 768px) {
-    .post {
-        width: 70px;
-        height: 70px;
-    }
+.vk {
+    margin: auto;
+    background-image: url(vklogo.png);
+    background-size: cover;
+    width: 68px;
+    height: 68px;
+}
+.contact1 {
+    font-size: 18px;
+    display: block;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin: 10px 0;
+}
+.contact11 {
+    font-size: 16px;
+    margin: auto;
+    display: flex;
+    color: black;
+    text-align: center;
+    width: 150px;
+}
+.post {
+    margin: auto;
+    background-image: url(post.png);
+    background-size: cover;
+    width: 68px;
+    height: 68px;
+}
+    .svyaz {
+    margin-top: 30px;
+    text-align: center;
+}
+.contdan2 {
+    margin: 0 50px;
+    display: inline-block;
+}
+.visited {
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    color: blue;
+}
+}
+@media (min-width: 1080px) {
+.vk {
+    margin: auto;
+    background-image: url(vklogo.png);
+    background-size: cover;
+    width: 75px;
+    height: 75px;
+}
+.contact1 {
+    font-size: 20px;
+    display: block;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin: 10px 0;
+}
+.contact11 {
+    font-size: 18px;
+    margin: auto;
+    display: flex;
+    color: black;
+    text-align: center;
+    width: 150px;
+}
+.post {
+    margin: auto;
+    background-image: url(post.png);
+    background-size: cover;
+    width: 75px;
+    height: 75px;
+}
+    .svyaz {
+    margin-top: 30px;
+    text-align: center;
+}
+.contdan2 {
+    margin: 20px 60px;
+    display: inline-block;
+}
+.visited {
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+    color: blue;
+}
+}
+.me {
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    display: block;
+    margin: 30px auto 20px auto;
+}
+.me1 {
+    display: block;
+    margin: 0 auto;
+}
+.about {
+    margin: 0 auto 0 auto;
+    font-size: 15px;
+    width: 250px;
+    text-align: center;
+}
+h1 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 60px;
+}
+h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 50px;
+    color: #404040;
+}
+
+@media (min-width: 460px) {
+    .contdan1 {
+    display: block;
+}
+.me {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 30px auto 20px auto;
+}
+.me1 {
+    display: block;
+    margin: 0 auto;
+}
+.about {
+    margin: 0 auto 0 auto;
+    font-size: 20px;
+    width: 400px;
+    text-align: center;
+}
+h1 {
+    font-size: 35px;
+    text-align: center;
+    margin-top: 60px;
+}
+h2 {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 50px;
+    color: #404040;
+}
+}
+@media (min-width: 768px) {
+    .contdan1 {
+    display: flex;
+}
+.me {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: 40px;
+}
+.me1 {
+    display: inline-block;
+    margin: 0 0 0 auto;
+}
+.about {
+    display: block;
+    vertical-align: middle;
+    margin-top: 80px;
+    font-size: 20px;
+    width: 700px;
+    margin-right: auto;
+    margin-left: 30px;
+    text-align: left;
+}
+h1 {
+    text-align: center;
+    margin-top: 100px;
+}
+h2 {
+    text-align: center;
+    margin-top: 70px;
+    color: #404040;
+}
+}
+@media (min-width: 1080px) {
+    .contdan1 {
+    display: flex;
+}
+.me {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+}
+.me1 {
+    display: inline-block;
+    margin: 0 0 0 auto;
+}
+.about {
+    display: block;
+    vertical-align: middle;
+    margin-top: 120px;
+    font-size: 20px;
+    width: 700px;
+    margin-right: auto;
+    margin-left: 30px;
+}
+h1 {
+    text-align: center;
+    margin-top: 130px;
+}
+h2 {
+    text-align: center;
+    margin-top: 60px;
+    color: #404040;
+}
+}
+@media (min-width: 768px){
+footer {
+    padding-top: 200px
+}
+.fot {
+    background-color: #22292F;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.fottext {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+}
+@media (max-width: 768px){
+footer {
+    padding-top: 200px
+}
+.fot {
+    background-color: #22292F;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.fottext {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+}
+}
+@media (max-width: 460px){
+footer {
+    padding-top: 70px
+}
+.fot {
+    background-color: #22292F;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.fottext {
+    font-size: 13px;
+    color: white;
+    text-align: center;
+}
 }
