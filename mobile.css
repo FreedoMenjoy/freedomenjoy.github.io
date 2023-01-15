@@ -58,7 +58,6 @@ nav ul li a:hover, nav ul li a:focus {
    color: #878787;
 }
 .maintext {
-        height: 0px;
         color: white;
         font-size: 40px;
         font-family: 'Secular One', sans-serif;
@@ -68,7 +67,7 @@ nav ul li a:hover, nav ul li a:focus {
   .maintext {
         height: 50px;
         width: 820px;
-        ;
+        margin-bottom: auto;
     }
 }
 .menu-outfit {
@@ -107,10 +106,11 @@ nav ul li a:hover, nav ul li a:focus {
         height: 0px;
     }
 }
-@media (max-width: 942px) {
+@media (max-width: 961px) {
     .maintext {
         font-size: 30px;
         height: 40px;
+        margin-top: 3px;
         padding: inherit;
         width: 460px
     }
@@ -120,7 +120,70 @@ nav ul li a:hover, nav ul li a:focus {
     .maintext {
         font-size: 23px;
         height: 40px;
+        margin-top: 7px;
         padding: inherit;
-        width: 370px
+        width: 340px;
+    }
+}
+@media (max-width: 353px) {
+    .maintext {
+        font-size: 20px;
+        height: 25px;
+        margin-top: 12px;
+        padding: inherit;
+        width: 370px;
+    }
+}
+@media (max-width: 328px) {
+    .maintext {
+        font-size: 18px;
+        height: 25px;
+        margin-top: 12px;
+        padding: inherit;
+        width: 370px;
+    }
+}
+@media (max-width: 767px) {
+    .maintext {
+        font-size: 23px;
+        height: 40px;
+        margin-top: 7px;
+        padding: inherit;
+        width: 340px;
+        position: absolute;
+        left: 65px;
+    }
+}
+.vk {
+    
+    background-image: url(vklogo.png);
+    background-position: left;
+    display: inline-block;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+@media (min-width: 768px) {
+    .vk {
+        width: 70px;
+        height: 70px;
+    }
+}
+.contact {
+    display: inline-block;
+    color: black;
+}
+.post {
+    background-image: url(post.png);
+    background-position: left;
+    display: inline-block;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+@media (min-width: 768px) {
+    .post {
+        width: 70px;
+        height: 70px;
     }
 }
