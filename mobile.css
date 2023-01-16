@@ -548,3 +548,22 @@ footer {
     text-align: center;
 }
 }
+.menu-interes {
+    margin-top: 3%;
+    margin-left: 1%;
+    height: auto;
+    padding: 5px;
+    background-color: #40474d;
+    width: 13%;
+    position: sticky;
+    top: 0;
+}
+.block {
+    background-color: #8c8c8c;
+    border: 2px black;
+    text-align: center;
+    padding: 5px;
+    margin: 2px;
+    font-size: 20px;
+    transition: 0.5s;
+}
