@@ -541,6 +541,7 @@ footer {
     background-color: #22292F;
     padding-bottom: 5px;
     padding-top: 5px;
+    margin-bottom: 0;
 }
 .fottext {
     font-size: 13px;
