@@ -189,6 +189,7 @@ nav ul li a:hover, nav ul li a:focus {
     margin-top: 10px;
     text-align: center;
     color: blue;
+    text-decoration: none !important;
 }
 @media (min-width: 320px) {
 .vk {
@@ -234,6 +235,7 @@ nav ul li a:hover, nav ul li a:focus {
     margin-top: 10px;
     text-align: center;
     color: blue;
+    text-decoration: none !important;
 }
 }
 @media (min-width: 460px) {
@@ -280,6 +282,7 @@ nav ul li a:hover, nav ul li a:focus {
     margin-top: 10px;
     text-align: center;
     color: blue;
+    text-decoration: none !important;
 }
 }
 @media (min-width: 768px) {
@@ -326,6 +329,7 @@ nav ul li a:hover, nav ul li a:focus {
     margin-top: 10px;
     text-align: center;
     color: blue;
+    text-decoration: none !important;
 }
 }
 @media (min-width: 1080px) {
@@ -372,6 +376,7 @@ nav ul li a:hover, nav ul li a:focus {
     margin-top: 10px;
     text-align: center;
     color: blue;
+    text-decoration: none !important;
 }
 }
 .me {
@@ -394,7 +399,7 @@ nav ul li a:hover, nav ul li a:focus {
 h1 {
     font-size: 30px;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 10px;
 }
 h2 {
     font-size: 20px;
@@ -427,7 +432,7 @@ h2 {
 h1 {
     font-size: 35px;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 10px;
 }
 h2 {
     font-size: 25px;
@@ -462,7 +467,7 @@ h2 {
 }
 h1 {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 h2 {
     text-align: center;
@@ -495,7 +500,7 @@ h2 {
 }
 h1 {
     text-align: center;
-    margin-top: 130px;
+    margin-top: 30px;
 }
 h2 {
     text-align: center;
@@ -541,7 +546,6 @@ footer {
     background-color: #22292F;
     padding-bottom: 5px;
     padding-top: 5px;
-    margin-bottom: 0;
 }
 .fottext {
     font-size: 13px;
@@ -550,13 +554,13 @@ footer {
 }
 }
 .menu-interes {
-    margin-top: 3%;
-    margin-left: 1%;
     height: auto;
     padding: 5px;
     background-color: #40474d;
     width: 13%;
+    position: -webkit-sticky;
     position: sticky;
+    top: 50%;
 }
 .block {
     background-color: #8c8c8c;
@@ -566,4 +570,29 @@ footer {
     margin: 2px;
     font-size: 20px;
     transition: 0.5s;
+}
+.text-in-block {
+    font-size: 17px;
+    margin: 40px auto 0 auto;
+    width: 1000px;
+}
+h3 {
+    color: dimgrey;
+    text-align: center;
+}
+.text-in-block1 {
+    font-size: 17px;
+    display: inline-block;
+    text-align: start;
+    width: 500px;
+}
+.glaz {
+    width: 70%;
+    display: inline-block;
+    margin-left: 100px;
+}
+.container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
