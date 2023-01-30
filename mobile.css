@@ -597,7 +597,6 @@ footer {
     opacity: 0;
     transition: 0.5s;
 }
-
 .back-to-top.active {
     bottom: 50px;
     visibility: visible;
