@@ -110,16 +110,19 @@ nav ul li a:hover, nav ul li a:focus {
         height: 0px;
     }
 }
-@media (max-width: 961px) {
+
+@media (max-width: 978px) {
     .maintext {
-        font-size: 30px;
+        font-size: 28px;
         height: 40px;
         margin-top: 3px;
         padding: inherit;
-        width: 460px
+        width: 450px
     }
 }
-
+main {
+    margin-top: 100px;
+}
 @media (max-width: 833px) {
     .maintext {
         font-size: 23px;
@@ -127,6 +130,15 @@ nav ul li a:hover, nav ul li a:focus {
         margin-top: 7px;
         padding: inherit;
         width: 340px;
+    }
+}
+@media (max-width: 782px) {
+    .maintext {
+        font-size: 21px;
+        height: 40px;
+        margin-top: 7px;
+        padding: inherit;
+        width: 310px;
     }
 }
 @media (max-width: 767px) {
@@ -475,7 +487,7 @@ h1 {
 }
 h2 {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 50px;
     color: #404040;
 }
 }
@@ -512,6 +524,7 @@ h2 {
     color: #404040;
 }
 }
+
 @media (min-width: 768px){
 footer {
     padding-top: 100px
@@ -557,6 +570,8 @@ footer {
     text-align: center;
 }
 }
+
+@media (min-width: 768px) {
 .menu-interes {
     height: auto;
     padding: 5px;
@@ -565,6 +580,394 @@ footer {
     position: -webkit-sticky;
     position: sticky;
     top: 43%;
+    float: left;
+}
+.menu-interes a:link, .menu-interes a:visited {
+    text-decoration: none;
+    color: #DAE1E7;
+}
+.menu-interes a:hover, .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+}
+.block {
+    background-color: #3d474f;
+    border: 2px black;
+    text-align: center;
+    padding: 5px;
+    margin: 2px;
+    font-size: 15px;
+    transition: 0.5s;
+}
+.back-to-top {
+    position: fixed;
+    right: 50px;
+    bottom: 700px;
+    width: 50px;
+    height: 50px;
+    background: url(arrow_up.png);
+    background-size: cover;
+    z-index: 1;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.back-to-top.active {
+    bottom: 50px;
+    visibility: visible;
+    opacity: 1;
+}
+.text-in-block {
+    font-size: 14px;
+    margin: 40px auto 0 auto;
+    width: 500px;
+}
+h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+}
+.text-in-block1 {
+    font-size: 14px;
+    display: block;
+    text-align: start;
+    width: 500px;
+}
+.glaz {
+    width: 60%;
+    display: block;
+    margin-left: 125px;
+}
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 50%;
+}
+.xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+}
+h1 {
+    font-size: 29px;
+}
+h2 {
+    font-size: 19px;   
+}
+h3 {
+    font-size: 17px;   
+}
+}
+@media (min-width: 1000px) {
+.menu-interes {
+    height: auto;
+    padding: 5px;
+    background-color: #22292F;
+    width: 13%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 43%;
+    float: left;
+}
+.menu-interes a:link, .menu-interes a:visited {
+    text-decoration: none;
+    color: #DAE1E7;
+}
+.menu-interes a:hover, .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+}
+.block {
+    background-color: #3d474f;
+    border: 2px black;
+    text-align: center;
+    padding: 5px;
+    margin: 2px;
+    font-size: 15px;
+    transition: 0.5s;
+}
+.back-to-top {
+    position: fixed;
+    right: 50px;
+    bottom: 700px;
+    width: 50px;
+    height: 50px;
+    background: url(arrow_up.png);
+    background-size: cover;
+    z-index: 1;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.back-to-top.active {
+    bottom: 50px;
+    visibility: visible;
+    opacity: 1;
+}
+.text-in-block {
+    font-size: 16px;
+    margin: 40px auto 0 auto;
+    width: 680px;
+}
+h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+}
+.text-in-block1 {
+    font-size: 16px;
+    display: block;
+    text-align: start;
+    width: 680px;
+}
+.glaz {
+    width: 70%;
+    display: block;
+    margin-left: 100px;
+}
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 50%;
+}
+.xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+}
+h1 {
+    font-size: 29px;
+}
+h2 {
+    font-size: 20px;   
+}
+h3 {
+    font-size: 17px;   
+}
+}
+@media (min-width: 1080px) {
+.menu-interes {
+    height: auto;
+    padding: 5px;
+    background-color: #22292F;
+    width: 13%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 43%;
+    float: left;
+}
+.menu-interes a:link, .menu-interes a:visited {
+    text-decoration: none;
+    color: #DAE1E7;
+}
+.menu-interes a:hover, .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+}
+.block {
+    background-color: #3d474f;
+    border: 2px black;
+    text-align: center;
+    padding: 5px;
+    margin: 2px;
+    font-size: 15px;
+    transition: 0.5s;
+}
+.back-to-top {
+    position: fixed;
+    right: 50px;
+    bottom: 700px;
+    width: 50px;
+    height: 50px;
+    background: url(arrow_up.png);
+    background-size: cover;
+    z-index: 1;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.back-to-top.active {
+    bottom: 50px;
+    visibility: visible;
+    opacity: 1;
+}
+.text-in-block {
+    font-size: 16px;
+    margin: 40px auto 0 auto;
+    width: 600px;
+}
+h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+}
+.text-in-block1 {
+    font-size: 16px;
+    display: inline-block;
+    text-align: start;
+    width: 250px;
+}
+.glaz {
+    width: 90%;
+    display: inline-block;
+    margin-left: 50px;
+}
+.container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 30%;
+}
+.xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+}
+h1 {
+    font-size: 30px;
+}
+h2 {
+    font-size: 23px;   
+}
+h3 {
+    font-size: 17px;   
+}
+}
+@media (min-width: 1215px) {
+.menu-interes {
+    height: auto;
+    padding: 5px;
+    background-color: #22292F;
+    width: 13%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 43%;
+    float: left;
+}
+.menu-interes a:link, .menu-interes a:visited {
+    text-decoration: none;
+    color: #DAE1E7;
+}
+.menu-interes a:hover, .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+}
+.block {
+    background-color: #3d474f;
+    border: 2px black;
+    text-align: center;
+    padding: 5px;
+    margin: 2px;
+    font-size: 15px;
+    transition: 0.5s;
+}
+.back-to-top {
+    position: fixed;
+    right: 50px;
+    bottom: 700px;
+    width: 60px;
+    height: 60px;
+    background: url(arrow_up.png);
+    background-size: cover;
+    z-index: 1;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.back-to-top.active {
+    bottom: 50px;
+    visibility: visible;
+    opacity: 1;
+}
+.text-in-block {
+    font-size: 16px;
+    margin: 40px auto 0 auto;
+    width: 800px;
+}
+h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+}
+.text-in-block1 {
+    font-size: 16px;
+    display: inline-block;
+    text-align: start;
+    width: 300px;
+}
+.glaz {
+    width: 70%;
+    display: inline-block;
+    margin-left: 100px;
+}
+.container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 30%;
+}
+.xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+}
+h1 {
+    font-size: 30px;
+}
+h2 {
+    font-size: 23px;   
+}
+h3 {
+    font-size: 17px;   
+}
+}
+@media (min-width: 1553px) {
+    .block-interes {
+        display: inline-block;
+    }
+.menu-interes {
+    height: auto;
+    padding: 5px;
+    background-color: #22292F;
+    width: 13%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 43%;
+    float: left;
 }
 .menu-interes a:link, .menu-interes a:visited {
     text-decoration: none;
@@ -634,4 +1037,20 @@ h3 {
     margin: 30px auto;
     display: flex;
     width: 30%;
+}
+.xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+}
+h1 {
+    font-size: 40px;
+}
+h2 {
+    font-size: 25px;   
+}
+h3 {
+    font-size: 20px;   
+}
 }
