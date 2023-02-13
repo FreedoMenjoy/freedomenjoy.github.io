@@ -418,7 +418,7 @@ main {
 }
 .about {
     margin: 0 auto 0 auto;
-    font-size: 15px;
+    font-size: 17px;
     width: 250px;
     text-align: center;
 }
@@ -451,7 +451,7 @@ h2 {
 }
 .about {
     margin: 0 auto 0 auto;
-    font-size: 20px;
+    font-size: 17px;
     width: 400px;
     text-align: center;
 }
@@ -537,7 +537,8 @@ h2 {
 
 @media (min-width: 768px){
 footer {
-    padding-top: 100px
+    padding-top: 100px;
+    float: both;
 }
 .fot {
     background-color: #22292F;
@@ -552,7 +553,8 @@ footer {
 }
 @media (max-width: 768px){
 footer {
-    padding-top: 100px
+    padding-top: 100px;
+    float: both;
 }
 .fot {
     background-color: #22292F;
@@ -568,6 +570,7 @@ footer {
 @media (max-width: 460px){
 footer {
     padding-top: 100px;
+    float: both;
 }
 .fot {
     background-color: #22292F;
@@ -582,17 +585,18 @@ footer {
 }
 
 
+
 @media (max-width: 768px) {
     .menu-interes {
         color: black;
         margin: 40px auto 0 auto;
         width: 400px;
-        font-size: 18px;
+        font-size: 17px;
     }
 .menu-interes a:link, .menu-interes a:visited {
     text-decoration: none;
     color: black;
-    font-size: 18px;
+    font-size: 17px;
 }
 .menu-interes a:hover, .menu-interes a:focus {
     color: #878787;
@@ -600,7 +604,7 @@ footer {
 }
 .back-to-top {
     position: fixed;
-    right: 50px;
+    right: 30px;
     bottom: 700px;
     width: 40px;
     height: 40px;
@@ -623,6 +627,7 @@ footer {
 .text-in-block {
     font-size: 17px;
     margin: 40px auto 0 auto;
+    flex-wrap: wrap;
     width: 400px;
 }
 h3 {
@@ -637,11 +642,10 @@ h3 {
     width: 400px;
 }
 .glaz {
-    text-align: center;
-    justify-content: center;
-    margin: 30px auto;
+    width: 90%;
     display: block;
-    width: 60%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 .container {
     display: flex;
@@ -654,6 +658,89 @@ h3 {
     margin: 30px auto;
     display: flex;
     width: 60%;
+}
+.xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+}
+h3 {
+    font-size: 18px;   
+}
+}
+@media (max-width: 450px) {
+    .menu-interes {
+        color: black;
+        margin: 40px auto 0 auto;
+        width: 250px;
+        font-size: 16px;
+    }
+.menu-interes a:link, .menu-interes a:visited {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+.menu-interes a:hover, .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+}
+.back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 700px;
+    width: 40px;
+    height: 40px;
+    background: url(arrow_up.png);
+    background-size: cover;
+    z-index: 1;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+    .main-kartinka {
+        display: block;
+    }
+.back-to-top.active {
+    bottom: 50px;
+    visibility: visible;
+    opacity: 1;
+}
+.text-in-block {
+    font-size: 16px;
+    flex-wrap: wrap;
+    margin: 40px auto 0 auto;
+    width: 300px;
+}
+h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+}
+.text-in-block1 {
+    font-size: 16px;
+    display: block;
+    text-align: start;
+    width: 300px;
+}
+.glaz {
+    width: 90%;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+}
+.container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 90%;
 }
 .xudozhniki-kartini {
     text-align: center;
@@ -684,8 +771,8 @@ h3 {
     position: fixed;
     right: 50px;
     bottom: 700px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: url(arrow_up.png);
     background-size: cover;
     z-index: 1;
@@ -820,4 +907,7 @@ h3 {
 h3 {
     font-size: 20px;   
 }
+}
+.block {
+    margin-top: 10px;
 }
