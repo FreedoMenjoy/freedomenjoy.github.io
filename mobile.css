@@ -911,3 +911,35 @@ h3 {
 .block {
     margin-top: 10px;
 }
+
+.test-open {
+    background-color: #0b0a4a;
+    color: white;
+    padding: 20px;
+    width: 150px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.text-interes a:link, .text-interes a:visited {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+}
+
+#box {
+    justify-content: center;
+    text-align: center;
+}
+#test div {
+	margin-bottom: 30px;
+}
+
+.correct {
+	border: 1px solid green;
+}
+.incorrect {
+	border: 1px solid red;
+}
