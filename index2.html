@@ -165,7 +165,31 @@
                 </div>
                 <h2 id="test">Тест</h2>
                 <div class="text-interes">
-                    
+                    <a href="#box" onclick="openbox('test-button'); return false">
+                        <div class="test-open">
+                            <p>
+                                Пройти тест
+                            </p>
+                        </div>
+                    </a>
+                    <div id="box" style="display: none;">
+                        <div id="test">
+	<div>
+		<p>Question 1?</p>
+		
+		<input>
+	</div>
+	<div>
+		<p>Question 2?</p>
+		<input>
+	</div>
+	<div>
+		<p>Question 3?</p>
+		<input>
+	</div>
+	<button id="button">check</button>
+</div>
+                    </div>
                 </div>
             </div>
 </main>
@@ -176,4 +200,5 @@
 </footer>
 <script src="script.js" defer></script>
 <script src="script2.js" defer></script>
+<script src="script3.js" defer></script>
 </html>
