@@ -1,9 +1,8 @@
 function openbox(box) {
-    display = document.getElementById('box').style.display;
-    if(display == "none") {
-        document.getElementById('box').style.display = "block";
-    }
-    else {
-        document.getElementById('box').style.display = "none";
+    const element = document.querySelector(box);
+    if (element.style.display === "none") {
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
     }
 }
