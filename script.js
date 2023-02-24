@@ -10,7 +10,8 @@ try {
     if (menuOutfitElement == null)
         alert('DEBUG: Menu button element not found');
     if (menuOutfitElement != null) {
-        menuOutfitElement.addEventListener('click', function () {
+        menuOutfitElement.addEventListener('click', (event) => {
+            event.stopPropagation();
             if (checkboxElement != null)
                 checkboxElement.checked = !checkboxElement.checked;
         });
