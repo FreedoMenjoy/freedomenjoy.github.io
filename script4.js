@@ -9,8 +9,10 @@ buttonElement.addEventListener('click', function() {
 	for (let input of inputs) {
 		if (input.value == input.dataset.right) {
 			input.classList.add('correct');
+			input.classList.remove('incorrect');
 			correct++;
 		} else {
+			input.classList.remove('correct');
 			input.classList.add('incorrect');
 		}
 	}
