@@ -1,6 +1,6 @@
-function _calculatedSort_qs<T> (values: T[], arr: number[], start: number, end: number) {
+function implCalculatedQSort<T> (values: T[], arr: number[], start: number, end: number): void {
   if (start >= end) return;
-  
+
   const pivot = arr[start];
 
   let count = 0;
@@ -26,11 +26,11 @@ function _calculatedSort_qs<T> (values: T[], arr: number[], start: number, end: 
     }
   }
 
-  _calculatedSort_qs(values, arr, start, pivotIndex - 1);
-  _calculatedSort_qs(values, arr, pivotIndex + 1, end);
+  implCalculatedQSort(values, arr, start, pivotIndex - 1);
+  implCalculatedQSort(values, arr, pivotIndex + 1, end);
 }
 
-export function calculatedSort<T> (arr: T[], mapfn: (v: T, k: number) => number): T[] {
+export function calculatedQSort<T> (arr: T[], mapfn: (v: T, k: number) => number): T[] {
   /**
    * @type {T[]}
    */
@@ -40,10 +40,10 @@ export function calculatedSort<T> (arr: T[], mapfn: (v: T, k: number) => number)
    * @type {[T, number][]}
    */
   const mapped = Array.from(arr, (v, k) => mapfn(v, k));
-  _calculatedSort_qs(result, mapped, 0, arr.length - 1);
+  implCalculatedQSort(result, mapped, 0, arr.length - 1);
   return result;
 }
 
 const arr = Array.from({ length: 100 }, () => ({ val: Math.floor(Math.random() * 100) }));
 console.log(arr);
-console.log(calculatedSort(arr, (v) => v.val));
+console.log(calculatedQSort(arr, (v) => v.val));
