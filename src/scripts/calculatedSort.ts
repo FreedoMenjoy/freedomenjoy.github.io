@@ -31,14 +31,8 @@ function implCalculatedQSort<T> (values: T[], arr: number[], start: number, end:
 }
 
 export function calculatedQSort<T> (arr: T[], mapfn: (v: T, k: number) => number): T[] {
-  /**
-   * @type {T[]}
-   */
   const result = Array.from(arr);
   if (arr.length < 2) return result;
-  /**
-   * @type {[T, number][]}
-   */
   const mapped = Array.from(arr, (v, k) => mapfn(v, k));
   implCalculatedQSort(result, mapped, 0, arr.length - 1);
   return result;
