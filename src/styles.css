@@ -946,3 +946,11 @@ h3 {
 .incorrect {
 	border: 1px solid red;
 }
+.imgtest {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+}
