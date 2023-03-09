@@ -32,5 +32,7 @@
     "no-warning-comments": ["error", { "terms": ["todo", "fixme"] }],
 
     "import/no-cycle": ["error", { "maxDepth": "∞" }]
-  }
+  },
+
+  "@typescript-eslint/no-unused-vars": "off"
 }
