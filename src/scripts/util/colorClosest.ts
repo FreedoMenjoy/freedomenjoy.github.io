@@ -1,10 +1,5 @@
-import { type RGBColor } from "./color";
+import { type ColorName, type RGBColor } from "./color";
 import { ColorDistanceFn } from "./colorDistance";
-
-export interface ColorName {
-  name: string;
-  color: RGBColor;
-}
 
 export function colorClosest (color: RGBColor, colorNames: ColorName[], distFn: ColorDistanceFn): ColorName {
   let foundColorName: ColorName = colorNames[0];

@@ -3,6 +3,7 @@ import { RGBColorToHex, type RGBColor } from "./util/color";
 import { colorClosest } from "./util/colorClosest";
 import { ColorDistanceFn, colorDistanceRedmeanSquare, colorDistanceWeightedSquare } from "./util/colorDistance";
 import { colorNames } from "./util/colorNames";
+import { colorNamesSimple } from "./util/colorNamesSimple";
 import { addEventListenerMouseDownMove } from "./util/EventListener";
 
 const sliderPointRadiusElement = document.getElementById('input-point-radius') as HTMLInputElement;
@@ -73,6 +74,11 @@ const textColorNameRGB = document.getElementById('text-color-name-rgb') as HTMLS
 const textColorNameHex = document.getElementById('text-color-name-hex') as HTMLSpanElement;
 const textColorNameColor = document.getElementById('text-color-name-color') as HTMLSpanElement;
 
+const textColorNameSimple = document.getElementById('text-color-name-simple') as HTMLSpanElement;
+const textColorNameSimpleRGB = document.getElementById('text-color-name-simple-rgb') as HTMLSpanElement;
+const textColorNameSimpleHex = document.getElementById('text-color-name-simple-hex') as HTMLSpanElement;
+const textColorNameSimpleColor = document.getElementById('text-color-name-simple-color') as HTMLSpanElement;
+
 function onMouseMove (e: MouseEvent): void {
   canvasRect?.undo();
   canvasRect = null;
@@ -86,6 +92,7 @@ function onMouseMove (e: MouseEvent): void {
   const roundColors: RGBColor = color.map(Math.round) as RGBColor;
   // textElement.innerText = `x:${x} y:${y} color:[${roundColors.join(', ')}] rectSize:${rectSize} distFn:${distFn.name} rect:[${color.rectX}, ${color.rectY}, ${color.rectW}, ${color.rectH}: ${color.rectX + color.rectW - 1}, ${color.rectY + color.rectH - 1}]`;
   const closestColorName = colorClosest(color, colorNames, colorDistFn);
+  const closestColorNameSimple = colorClosest(color, colorNamesSimple, colorDistFn);
 
   textColorRGB.innerText = roundColors.join(', ');
   textColorHex.innerText = RGBColorToHex(roundColors);
@@ -95,6 +102,11 @@ function onMouseMove (e: MouseEvent): void {
   textColorNameRGB.innerText = closestColorName.color.join(', ');
   textColorNameHex.innerText = RGBColorToHex(closestColorName.color);
   textColorNameColor.style.backgroundColor = `rgb(${closestColorName.color.join(', ')})`;
+
+  textColorNameSimple.innerText = closestColorNameSimple.name;
+  textColorNameSimpleRGB.innerText = closestColorNameSimple.color.join(', ');
+  textColorNameSimpleHex.innerText = RGBColorToHex(closestColorNameSimple.color);
+  textColorNameSimpleColor.style.backgroundColor = `rgb(${closestColorNameSimple.color.join(', ')})`;
 
   if (checkboxPointDraw.checked) {
     canvas2d.beginPath();
