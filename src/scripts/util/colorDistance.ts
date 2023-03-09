@@ -1,4 +1,6 @@
-export type RGBColor = [r: number, g: number, b: number];
+import { RGBColor } from "./color";
+
+export type ColorDistanceFn = (rgb1: RGBColor, rgb2: RGBColor) => number;
 
 export function colorDistanceWeightedSquare (rgb1: RGBColor, rgb2: RGBColor): number {
   const dR = rgb1[0] - rgb2[0];

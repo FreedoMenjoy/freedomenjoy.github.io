@@ -1,4 +1,4 @@
-import { forceQuerySelector } from './forceQuerySelector';
+import { forceQuerySelector } from './util/forceQuerySelector';
 
 const scoreElement = forceQuerySelector<HTMLSpanElement>('#score');
 

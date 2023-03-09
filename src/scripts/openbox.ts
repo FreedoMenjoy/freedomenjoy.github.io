@@ -1,4 +1,4 @@
-import { forceQuerySelector } from './forceQuerySelector';
+import { forceQuerySelector } from './util/forceQuerySelector';
 
 export function openbox (selector: string): void {
   const element = forceQuerySelector<HTMLElement>(selector);

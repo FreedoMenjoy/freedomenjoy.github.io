@@ -1,4 +1,4 @@
-import { forceQuerySelector } from './forceQuerySelector';
+import { forceQuerySelector } from './util/forceQuerySelector';
 
 window.addEventListener('scroll', () => {
   const scroll = forceQuerySelector('.back-to-top');
