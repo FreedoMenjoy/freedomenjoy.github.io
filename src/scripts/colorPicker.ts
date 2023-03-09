@@ -66,9 +66,12 @@ let canvasRect: CanvasUndoableRect | null = null;
 
 const textColorRGB = document.getElementById('text-color-rgb') as HTMLSpanElement;
 const textColorHex = document.getElementById('text-color-hex') as HTMLSpanElement;
+const textColorColor = document.getElementById('text-color-color') as HTMLSpanElement;
+
 const textColorName = document.getElementById('text-color-name') as HTMLSpanElement;
 const textColorNameRGB = document.getElementById('text-color-name-rgb') as HTMLSpanElement;
 const textColorNameHex = document.getElementById('text-color-name-hex') as HTMLSpanElement;
+const textColorNameColor = document.getElementById('text-color-name-color') as HTMLSpanElement;
 
 function onMouseMove (e: MouseEvent): void {
   canvasRect?.undo();
@@ -86,9 +89,12 @@ function onMouseMove (e: MouseEvent): void {
 
   textColorRGB.innerText = roundColors.join(', ');
   textColorHex.innerText = RGBColorToHex(roundColors);
+  textColorColor.style.backgroundColor = `rgb(${roundColors.join(', ')})`;
+
   textColorName.innerText = closestColorName.name;
   textColorNameRGB.innerText = closestColorName.color.join(', ');
   textColorNameHex.innerText = RGBColorToHex(closestColorName.color);
+  textColorNameColor.style.backgroundColor = `rgb(${closestColorName.color.join(', ')})`;
 
   if (checkboxPointDraw.checked) {
     canvas2d.beginPath();
