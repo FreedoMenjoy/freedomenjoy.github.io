@@ -26,3 +26,14 @@ export function colorDistanceRedmeanSquare (rgb1: RGBColor, rgb2: RGBColor): num
 export function colorDistanceRedmean (rgb1: RGBColor, rgb2: RGBColor): number {
   return Math.sqrt(colorDistanceRedmeanSquare(rgb1, rgb2));
 }
+
+export function colorDistanceParamspaceSquare (rgb1: RGBColor, rgb2: RGBColor): number {
+  const dR = rgb1[0] - rgb2[0];
+  const dG = rgb1[1] - rgb2[1];
+  const dB = rgb1[2] - rgb2[2];
+  return dR * dR + dG * dG + dB * dB;
+}
+
+export function colorDistanceParamspace (rgb1: RGBColor, rgb2: RGBColor): number {
+  return Math.sqrt(colorDistanceParamspaceSquare(rgb1, rgb2));
+}

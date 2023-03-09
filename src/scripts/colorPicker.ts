@@ -1,7 +1,7 @@
 import { canvasGetImageDataAvgColor, distanceWeightConst, distanceWeightEuclidean, distanceWeightEuclidean2, type DistanceWeightFn, distanceWeightManhattan, distanceWeightManhattan2, CanvasUndoableRect } from "./util/canvas";
 import { RGBColorToHex, type RGBColor } from "./util/color";
 import { colorClosest } from "./util/colorClosest";
-import { ColorDistanceFn, colorDistanceRedmeanSquare, colorDistanceWeightedSquare } from "./util/colorDistance";
+import { ColorDistanceFn, colorDistanceParamspaceSquare, colorDistanceRedmeanSquare, colorDistanceWeightedSquare } from "./util/colorDistance";
 import { colorNames } from "./util/colorNames";
 import { colorNamesSimple } from "./util/colorNamesSimple";
 import { addEventListenerMouseDownMove } from "./util/EventListener";
@@ -27,6 +27,7 @@ const distFns = {
 const colorDistFns = {
   redmean: colorDistanceRedmeanSquare,
   weighted: colorDistanceWeightedSquare,
+  paramspace: colorDistanceParamspaceSquare,
 };
 
 function onFileInput (evt: Event): void {
