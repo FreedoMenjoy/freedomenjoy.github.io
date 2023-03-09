@@ -31,24 +31,39 @@
   </header>
   <main>
     <div>
-      <canvas id="canvas" width="500" height="500" style="border: 1px solid black; width: auto; height: auto;" <!--hidden="hidden"-->></canvas>
+      <div>
+        <canvas id="canvas" width="500" height="500" style="border: 1px solid black; width: auto; height: auto;" <!--hidden="hidden"-->></canvas>
+      </div>
+      <div>
+        <input id="file-input" type="file" name="image" accept="image/*">
+        <br>
+        <span>радиус</span>
+        <input id="input-point-radius" name="radius" type="range" min="0" max="20" value="0">
+        <br>
+        <span>дистанция точки</span>
+        <select id="select-point-dist-fn" selected="euclidean">
+          <option value="euclidean">евклидово</option>
+          <option value="euclidean2">евклидово^2</option>
+          <option value="manhattan">манхэттенское</option>
+          <option value="manhattan2">манхэттенское^2</option>
+          <option value="const">постоянная</option>
+        </select>
+        <br>
+        <span>рисовать зону точки</span>
+        <input id="input-point-draw" type="checkbox">
+        <br>
+        <span>дистанция цвета</span>
+        <select id="select-color-dist-fn" selected="redmean">
+          <option value="redmean">redmean</option>
+          <option value="weighted">weighted</option>
+        </select>
+      </div>
+      <span>
+        rgb(<span id="text-color-rgb"></span>) hex:#<span id="text-color-hex"></span> <span id="text-color-color" style="width: 20px"></span>
+        <br>
+        цвет: <span id="text-color-name"></span> rgb(<span id="text-color-name-rgb"></span>) hex:#<span id="text-color-name-hex"></span> <span id="text-color-name-color"></span>
+      </span>
     </div>
-    <div>
-      <input id="fileInput" type="file" name="image" accept="image/*">
-      <br>
-      <span>радиус</span>
-      <input id="radius" name="radius" type="range" min="0" max="20" value="0">
-      <br>
-      <span>функция дистанции</span>
-      <select id="distFn" selected="euclidean">
-        <option value="euclidean">евклидово</option>
-        <option value="euclidean2">евклидово^2</option>
-        <option value="manhattan">манхэттенское</option>
-        <option value="manhattan2">манхэттенское^2</option>
-        <option value="const">постоянная</option>
-      </select>
-    </div>
-    <span id="text"></span>
   </main>
   <footer>
     <div class="fot">
@@ -57,4 +72,5 @@
   </footer>
   <script src="./scripts/menuCheckbox.ts"></script>
   <script src="./scripts/colorPicker.ts"></script>
+  <script src="./scripts/clickCopy.ts"></script>
 </html>

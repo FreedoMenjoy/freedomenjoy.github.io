@@ -3,17 +3,25 @@ export function addEventListenerMouseDownMove<T extends HTMLElement = HTMLElemen
     whileMove.call(target, e);
   }
 
-  function endMove (): void {
-    target.removeEventListener('mousemove', boundWhileMove);
-    window.removeEventListener('mouseup', endMove);
+  let ismousedown: boolean = false;
+
+  window.addEventListener('mousedown', () => {
+    ismousedown = true;
+  });
+
+  window.addEventListener('mouseup', () => {
+    ismousedown = false;
+  });
+
+  if (onmousedown) {
+    target.addEventListener('mousedown', (event) => {
+      whileMove.call(target, event);
+    });
   }
 
-  function startMove (event: MouseEvent): void {
-    if (stopPropagation) event.stopPropagation(); // remove if you do want it to propagate ..
-    if (onmousedown) whileMove.call(target, event);
-    target.addEventListener('mousemove', boundWhileMove);
-    window.addEventListener('mouseup', endMove);
-  }
-
-  window.addEventListener('mousedown', startMove);
+  target.addEventListener('mousemove', (event) => {
+    if (!ismousedown) return;
+    if (stopPropagation) event.stopPropagation(); // remove if you do want it to propagate ...
+    whileMove.call(target, event);
+  });
 }
