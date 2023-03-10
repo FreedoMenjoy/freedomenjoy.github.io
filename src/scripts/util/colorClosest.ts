@@ -1,8 +1,8 @@
-import { type ColorName, type RGBColor } from './color';
+import { type RGBColorName, type RGBColor } from './color';
 import { type ColorDistanceFn } from './colorDistance';
 
-export function colorClosest (color: RGBColor, colorNames: ColorName[], distFn: ColorDistanceFn): ColorName & { distance: number } {
-  let foundColorName: ColorName = colorNames[0];
+export function closestRGBColor (color: RGBColor, colorNames: RGBColorName[], distFn: ColorDistanceFn): RGBColorName & { distance: number } {
+  let foundColorName: RGBColorName = colorNames[0];
   let foundDistance: number = distFn(color, foundColorName.color);
   for (let i = 1; i < colorNames.length; i++) {
     const colorName = colorNames[i];

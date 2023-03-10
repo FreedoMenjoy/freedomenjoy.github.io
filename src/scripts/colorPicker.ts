@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { canvasGetImageDataAvgColor, distanceWeightConst, distanceWeightEuclidean, distanceWeightEuclidean2, type DistanceWeightFn, distanceWeightManhattan, distanceWeightManhattan2, CanvasUndoableRect } from './util/canvas';
 import { RGBColorToHex, type RGBColor } from './util/color';
-import { colorClosest } from './util/colorClosest';
+import { closestRGBColor } from './util/colorClosest';
 import { type ColorDistanceFn, colorDistanceParamspaceSquare, colorDistanceRedmeanSquare, colorDistanceWeightedSquare } from './util/colorDistance';
 import { colorNames } from './util/colorNames';
 import { colorNamesSimple } from './util/colorNamesSimple';
@@ -107,14 +107,14 @@ function onMouseMove (e: MouseEvent): void {
   textColorHex.innerText = RGBColorToHex(roundColors);
   textColorColor.style.backgroundColor = `rgb(${roundColors.join(', ')})`;
 
-  const closestColorName = colorClosest(color, colorNames, colorDistFn);
+  const closestColorName = closestRGBColor(color, colorNames, colorDistFn);
   textColorName.innerText = closestColorName.name;
   textColorNameDistance.innerText = String(roundFixed(Math.sqrt(closestColorName.distance), 2));
   textColorNameRGB.innerText = closestColorName.color.join(', ');
   textColorNameHex.innerText = RGBColorToHex(closestColorName.color);
   textColorNameColor.style.backgroundColor = `rgb(${closestColorName.color.join(', ')})`;
 
-  const closestColorNameSimple = colorClosest(color, colorNamesSimple, colorDistFn);
+  const closestColorNameSimple = closestRGBColor(color, colorNamesSimple, colorDistFn);
   textColorNameSimple.innerText = closestColorNameSimple.name;
   textColorNameSimpleDistance.innerText = String(roundFixed(Math.sqrt(closestColorNameSimple.distance), 2));
   textColorNameSimpleRGB.innerText = closestColorNameSimple.color.join(', ');
