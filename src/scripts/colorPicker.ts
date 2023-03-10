@@ -2,7 +2,7 @@
 import { canvasGetImageDataAvgColor, distanceWeightConst, distanceWeightEuclidean, distanceWeightEuclidean2, type DistanceWeightFn, distanceWeightManhattan, distanceWeightManhattan2, CanvasUndoableRect } from './util/canvas';
 import { RGBColorToHex, type RGBColor } from './util/color';
 import { closestRGBColor } from './util/colorClosest';
-import { type ColorDistanceFn, colorDistanceParamspaceSquare, colorDistanceRedmeanSquare, colorDistanceWeightedSquare } from './util/colorDistance';
+import { type ColorDistanceFn, colorDistanceParamspaceSquare, colorDistanceRedmeanSquare, colorDistanceWeightedSquare, colorDistanceLabParamspaceSquare } from './util/colorDistance';
 import { colorNames } from './util/colorNames';
 import { colorNamesSimple } from './util/colorNamesSimple';
 import { addEventListenerMouseDownMove } from './util/EventListener';
@@ -29,6 +29,7 @@ const distFns = {
 } as const;
 
 const colorDistFns = {
+  lab: colorDistanceLabParamspaceSquare,
   redmean: colorDistanceRedmeanSquare,
   weighted: colorDistanceWeightedSquare,
   paramspace: colorDistanceParamspaceSquare,
@@ -44,7 +45,7 @@ function onFileInput (evt: Event): void {
   const reader = new FileReader();
 
   reader.addEventListener('load', (e) => {
-    console.log('file', file, e, reader.result);
+    console.debug('file', file, e, reader.result);
     if (reader.result == null) return;
     const img = document.createElement('img');
     // Render thumbnail.
@@ -52,7 +53,7 @@ function onFileInput (evt: Event): void {
     // img.title = theFile.name;
 
     img.addEventListener('load', function onImageLoad () {
-      console.log(`img width:${img.width} height:${img.height}`);
+      console.debug(`img width:${img.width} height:${img.height}`);
 
       const widthScale = img.width / canvasRect.width;
       const heightScale = img.height / canvasRect.height;
@@ -91,21 +92,16 @@ const textColorNameSimpleRGB = forceGetElementById<HTMLSpanElement>('text-color-
 const textColorNameSimpleHex = forceGetElementById<HTMLSpanElement>('text-color-name-simple-hex');
 const textColorNameSimpleColor = forceGetElementById<HTMLSpanElement>('text-color-name-simple-color');
 
-function onMouseMove (e: MouseEvent): void {
+function displayColor (color: RGBColor): void {
   canvasPixelRect?.undo();
   canvasPixelRect = null;
 
-  const x = Math.min(e.offsetX, canvas.width - 1);
-  const y = Math.min(e.offsetY, canvas.height - 1);
-  const rectSize = Math.floor(Number(sliderPointRadiusElement.value));
-  const pointDistFn: DistanceWeightFn = Reflect.get(distFns, selectPointDistFnElement.value);
   const colorDistFn: ColorDistanceFn = Reflect.get(colorDistFns, selectColorDistFnElement.value);
-  const color = canvasGetImageDataAvgColor(canvas, x, y, { rectSize, distFn: pointDistFn });
 
-  const roundColors: RGBColor = color.map(Math.round) as RGBColor;
-  textColorRGB.innerText = roundColors.join(', ');
-  textColorHex.innerText = RGBColorToHex(roundColors);
-  textColorColor.style.backgroundColor = `rgb(${roundColors.join(', ')})`;
+  const roundColor: RGBColor = color.map(Math.round) as RGBColor;
+  textColorRGB.innerText = roundColor.join(', ');
+  textColorHex.innerText = RGBColorToHex(roundColor);
+  textColorColor.style.backgroundColor = `rgb(${roundColor.join(', ')})`;
 
   const closestColorName = closestRGBColor(color, colorNames, colorDistFn);
   textColorName.innerText = closestColorName.name;
@@ -120,6 +116,17 @@ function onMouseMove (e: MouseEvent): void {
   textColorNameSimpleRGB.innerText = closestColorNameSimple.color.join(', ');
   textColorNameSimpleHex.innerText = RGBColorToHex(closestColorNameSimple.color);
   textColorNameSimpleColor.style.backgroundColor = `rgb(${closestColorNameSimple.color.join(', ')})`;
+}
+
+function onMouseMove (e: MouseEvent): void {
+  const x = Math.min(e.offsetX, canvas.width - 1);
+  const y = Math.min(e.offsetY, canvas.height - 1);
+  console.debug(`x:${x} y:${y}`);
+  const rectSize = Math.floor(Number(sliderPointRadiusElement.value));
+  const pointDistFn: DistanceWeightFn = Reflect.get(distFns, selectPointDistFnElement.value);
+  const color = canvasGetImageDataAvgColor(canvas, x, y, { rectSize, distFn: pointDistFn });
+
+  displayColor(color);
 
   if (checkboxPointDraw.checked) {
     canvas2d.beginPath();
