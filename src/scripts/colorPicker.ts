@@ -6,14 +6,15 @@ import { type ColorDistanceFn, colorDistanceParamspaceSquare, colorDistanceRedme
 import { colorNames } from './util/colorNames';
 import { colorNamesSimple } from './util/colorNamesSimple';
 import { addEventListenerMouseDownMove } from './util/EventListener';
+import { forceGetElementById } from './util/forceQuerySelector';
 import { roundFixed } from './util/math';
 
-const sliderPointRadiusElement = document.getElementById('input-point-radius') as HTMLInputElement;
-const selectPointDistFnElement = document.getElementById('select-point-dist-fn') as HTMLOptionElement;
-const checkboxPointDraw = document.getElementById('input-point-draw') as HTMLInputElement;
-const selectColorDistFnElement = document.getElementById('select-color-dist-fn') as HTMLOptionElement;
-const fileInputElement = document.getElementById('file-input') as HTMLInputElement;
-const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+const sliderPointRadiusElement = forceGetElementById<HTMLInputElement>('input-point-radius');
+const selectPointDistFnElement = forceGetElementById<HTMLOptionElement>('select-point-dist-fn');
+const checkboxPointDraw = forceGetElementById<HTMLInputElement>('input-point-draw');
+const selectColorDistFnElement = forceGetElementById<HTMLOptionElement>('select-color-dist-fn');
+const fileInputElement = forceGetElementById<HTMLInputElement>('file-input');
+const canvas = forceGetElementById<HTMLCanvasElement>('canvas');
 const canvas2d: CanvasRenderingContext2D = canvas.getContext('2d', { willReadFrequently: true })!;
 
 Object.assign(window, { canvas, canvas2d });
@@ -68,21 +69,21 @@ fileInputElement.addEventListener('change', onFileInput);
 
 let canvasRect: CanvasUndoableRect | null = null;
 
-const textColorRGB = document.getElementById('text-color-rgb') as HTMLSpanElement;
-const textColorHex = document.getElementById('text-color-hex') as HTMLSpanElement;
-const textColorColor = document.getElementById('text-color-color') as HTMLSpanElement;
+const textColorRGB = forceGetElementById<HTMLSpanElement>('text-color-rgb');
+const textColorHex = forceGetElementById<HTMLSpanElement>('text-color-hex');
+const textColorColor = forceGetElementById<HTMLSpanElement>('text-color-color');
 
-const textColorName = document.getElementById('text-color-name') as HTMLSpanElement;
-const textColorNameDistance = document.getElementById('text-color-name-distance') as HTMLSpanElement;
-const textColorNameRGB = document.getElementById('text-color-name-rgb') as HTMLSpanElement;
-const textColorNameHex = document.getElementById('text-color-name-hex') as HTMLSpanElement;
-const textColorNameColor = document.getElementById('text-color-name-color') as HTMLSpanElement;
+const textColorName = forceGetElementById<HTMLSpanElement>('text-color-name');
+const textColorNameDistance = forceGetElementById<HTMLSpanElement>('text-color-name-distance');
+const textColorNameRGB = forceGetElementById<HTMLSpanElement>('text-color-name-rgb');
+const textColorNameHex = forceGetElementById<HTMLSpanElement>('text-color-name-hex');
+const textColorNameColor = forceGetElementById<HTMLSpanElement>('text-color-name-color');
 
-const textColorNameSimple = document.getElementById('text-color-name-simple') as HTMLSpanElement;
-const textColorNameSimpleDistance = document.getElementById('text-color-name-simple-distance') as HTMLSpanElement;
-const textColorNameSimpleRGB = document.getElementById('text-color-name-simple-rgb') as HTMLSpanElement;
-const textColorNameSimpleHex = document.getElementById('text-color-name-simple-hex') as HTMLSpanElement;
-const textColorNameSimpleColor = document.getElementById('text-color-name-simple-color') as HTMLSpanElement;
+const textColorNameSimple = forceGetElementById<HTMLSpanElement>('text-color-name-simple');
+const textColorNameSimpleDistance = forceGetElementById<HTMLSpanElement>('text-color-name-simple-distance');
+const textColorNameSimpleRGB = forceGetElementById<HTMLSpanElement>('text-color-name-simple-rgb');
+const textColorNameSimpleHex = forceGetElementById<HTMLSpanElement>('text-color-name-simple-hex');
+const textColorNameSimpleColor = forceGetElementById<HTMLSpanElement>('text-color-name-simple-color');
 
 function onMouseMove (e: MouseEvent): void {
   canvasRect?.undo();
