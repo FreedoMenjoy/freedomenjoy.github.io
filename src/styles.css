@@ -162,7 +162,7 @@ main {
         left: 65px;
     }
 }
-@media (max-width: 405px) {
+@media (max-width: 430px) {
     .maintext {
         font-size: 20px;
         height: 25px;
@@ -752,6 +752,89 @@ h3 {
     font-size: 18px;   
 }
 }
+@media (max-width: 422px) {
+    .menu-interes {
+        color: black;
+        margin: 40px auto 0 auto;
+        width: 230px;
+        font-size: 16px;
+    }
+.menu-interes a:link, .menu-interes a:visited {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+.menu-interes a:hover, .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+}
+.back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 700px;
+    width: 40px;
+    height: 40px;
+    background: url(resources/arrow_up.png);
+    background-size: cover;
+    z-index: 1;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+    .main-kartinka {
+        display: block;
+    }
+.back-to-top.active {
+    bottom: 50px;
+    visibility: visible;
+    opacity: 1;
+}
+.text-in-block {
+    font-size: 16px;
+    flex-wrap: wrap;
+    margin: 40px auto 0 auto;
+    width: 280px;
+}
+h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+}
+.text-in-block1 {
+    font-size: 16px;
+    display: block;
+    text-align: start;
+    width: 280px;
+}
+.glaz {
+    width: 80%;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+}
+.container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 80%;
+}
+.xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+}
+h3 {
+    font-size: 18px;   
+}
+}
 @media (min-width: 768px) {
     .menu-interes {
         color: black;
@@ -913,7 +996,7 @@ h3 {
 }
 
 .test-open {
-    background-color: #0b0a4a;
+    background-color: #22292F;
     color: white;
     padding: 20px;
     width: 150px;
@@ -951,4 +1034,12 @@ h3 {
     text-align: center;
     justify-content: center;
     margin: 35px auto;
+}
+#button {
+    width: 90px;
+    height: 50px;
+    font-size: 16px;
+    background-color: #22292F;
+    color: white;
+    border-radius: 10px;
 }
