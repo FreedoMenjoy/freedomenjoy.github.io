@@ -2,7 +2,7 @@
 import { canvasGetImageDataAvgColor, distanceWeightConst, distanceWeightEuclidean, distanceWeightEuclidean2, type DistanceWeightFn, distanceWeightManhattan, distanceWeightManhattan2, CanvasUndoableRect } from './util/canvas';
 import { RGBColorToHex, type RGBColor } from './util/color';
 import { closestRGBColor } from './util/colorClosest';
-import { type ColorDistanceFn, colorDistanceParamspaceSquare, colorDistanceRedmeanSquare, colorDistanceWeightedSquare, colorDistanceLabParamspaceSquare } from './util/colorDistance';
+import { colorDistanceLabParamspaceSquare } from './util/colorDistance';
 import { colorNames } from './util/colorNames';
 import { colorNamesSimple } from './util/colorNamesSimple';
 import { addEventListenerMouseDownMove } from './util/EventListener';
@@ -12,7 +12,6 @@ import { roundFixed } from './util/math';
 const sliderPointRadiusElement = forceGetElementById<HTMLInputElement>('input-point-radius');
 const selectPointDistFnElement = forceGetElementById<HTMLOptionElement>('select-point-dist-fn');
 const checkboxPointDraw = forceGetElementById<HTMLInputElement>('input-point-draw');
-const selectColorDistFnElement = forceGetElementById<HTMLOptionElement>('select-color-dist-fn');
 const fileInputElement = forceGetElementById<HTMLInputElement>('file-input');
 const canvas = forceGetElementById<HTMLCanvasElement>('canvas');
 const canvas2d: CanvasRenderingContext2D = canvas.getContext('2d', { willReadFrequently: true })!;
@@ -26,13 +25,6 @@ const distFns = {
   manhattan: distanceWeightManhattan,
   manhattan2: distanceWeightManhattan2,
   const: distanceWeightConst,
-} as const;
-
-const colorDistFns = {
-  lab: colorDistanceLabParamspaceSquare,
-  redmean: colorDistanceRedmeanSquare,
-  weighted: colorDistanceWeightedSquare,
-  paramspace: colorDistanceParamspaceSquare,
 } as const;
 
 function onFileInput (evt: Event): void {
@@ -96,21 +88,19 @@ function displayColor (color: RGBColor): void {
   canvasPixelRect?.undo();
   canvasPixelRect = null;
 
-  const colorDistFn: ColorDistanceFn = Reflect.get(colorDistFns, selectColorDistFnElement.value);
-
   const roundColor: RGBColor = color.map(Math.round) as RGBColor;
   textColorRGB.innerText = roundColor.join(', ');
   textColorHex.innerText = RGBColorToHex(roundColor);
   textColorColor.style.backgroundColor = `rgb(${roundColor.join(', ')})`;
 
-  const closestColorName = closestRGBColor(color, colorNames, colorDistFn);
+  const closestColorName = closestRGBColor(color, colorNames, colorDistanceLabParamspaceSquare);
   textColorName.innerText = closestColorName.name;
   textColorNameDistance.innerText = String(roundFixed(Math.sqrt(closestColorName.distance), 2));
   textColorNameRGB.innerText = closestColorName.color.join(', ');
   textColorNameHex.innerText = RGBColorToHex(closestColorName.color);
   textColorNameColor.style.backgroundColor = `rgb(${closestColorName.color.join(', ')})`;
 
-  const closestColorNameSimple = closestRGBColor(color, colorNamesSimple, colorDistFn);
+  const closestColorNameSimple = closestRGBColor(color, colorNamesSimple, colorDistanceLabParamspaceSquare);
   textColorNameSimple.innerText = closestColorNameSimple.name;
   textColorNameSimpleDistance.innerText = String(roundFixed(Math.sqrt(closestColorNameSimple.distance), 2));
   textColorNameSimpleRGB.innerText = closestColorNameSimple.color.join(', ');
