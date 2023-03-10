@@ -45,7 +45,7 @@ function onFileInput (evt: Event): void {
   const reader = new FileReader();
 
   reader.addEventListener('load', (e) => {
-    console.log('file', file, e, reader.result);
+    console.debug('file', file, e, reader.result);
     if (reader.result == null) return;
     const img = document.createElement('img');
     // Render thumbnail.
@@ -53,7 +53,7 @@ function onFileInput (evt: Event): void {
     // img.title = theFile.name;
 
     img.addEventListener('load', function onImageLoad () {
-      console.log(`img width:${img.width} height:${img.height}`);
+      console.debug(`img width:${img.width} height:${img.height}`);
 
       const widthScale = img.width / canvasRect.width;
       const heightScale = img.height / canvasRect.height;
@@ -121,6 +121,7 @@ function displayColor (color: RGBColor): void {
 function onMouseMove (e: MouseEvent): void {
   const x = Math.min(e.offsetX, canvas.width - 1);
   const y = Math.min(e.offsetY, canvas.height - 1);
+  console.debug(`x:${x} y:${y}`);
   const rectSize = Math.floor(Number(sliderPointRadiusElement.value));
   const pointDistFn: DistanceWeightFn = Reflect.get(distFns, selectPointDistFnElement.value);
   const color = canvasGetImageDataAvgColor(canvas, x, y, { rectSize, distFn: pointDistFn });
