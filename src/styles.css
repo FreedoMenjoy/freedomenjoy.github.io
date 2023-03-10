@@ -1058,6 +1058,10 @@ h3 {
         width: auto; 
         height: auto;
     }
+    .check-colour {
+    margin: 0 auto;
+    width: 250px;
+}
 }
 @media (max-width: 600px) {
     #canvas {
@@ -1065,11 +1069,12 @@ h3 {
         width: 80%; 
         height: 80%;
     }
+    .check-colour {
+    margin: 0 auto;
+    width: 200px;
+}
 }
 .glavnaya {
     margin-bottom: 50px;
 }
-.check-colour {
-    margin: 0 auto;
-    text-align: center;
-}
+
