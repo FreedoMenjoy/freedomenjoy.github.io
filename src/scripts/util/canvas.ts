@@ -84,8 +84,8 @@ export class CanvasUndoableRect {
   }
 
   public static rect (canvas2d: CanvasRenderingContext2D, x: number, y: number, width: number, height: number): CanvasUndoableRect {
-    const lineWidth = canvas2d.lineWidth + 1;
-    const data = canvas2d.getImageData(x - lineWidth, y - lineWidth, width + lineWidth + lineWidth, height + lineWidth + lineWidth);
+    const lineWidth = canvas2d.lineWidth;
+    const data = canvas2d.getImageData(x - lineWidth - 1, y - lineWidth - 1, width + lineWidth + lineWidth + 2, height + lineWidth + lineWidth + 2);
     canvas2d.rect(x, y, width, height);
     return new CanvasUndoableRect(canvas2d, x, y, width, height, lineWidth, data);
   }
