@@ -6,6 +6,7 @@ import { type ColorDistanceFn, colorDistanceParamspaceSquare, colorDistanceRedme
 import { colorNames } from './util/colorNames';
 import { colorNamesSimple } from './util/colorNamesSimple';
 import { addEventListenerMouseDownMove } from './util/EventListener';
+import { roundFixed } from './util/math';
 
 const sliderPointRadiusElement = document.getElementById('input-point-radius') as HTMLInputElement;
 const selectPointDistFnElement = document.getElementById('select-point-dist-fn') as HTMLOptionElement;
@@ -72,11 +73,13 @@ const textColorHex = document.getElementById('text-color-hex') as HTMLSpanElemen
 const textColorColor = document.getElementById('text-color-color') as HTMLSpanElement;
 
 const textColorName = document.getElementById('text-color-name') as HTMLSpanElement;
+const textColorNameDistance = document.getElementById('text-color-name-distance') as HTMLSpanElement;
 const textColorNameRGB = document.getElementById('text-color-name-rgb') as HTMLSpanElement;
 const textColorNameHex = document.getElementById('text-color-name-hex') as HTMLSpanElement;
 const textColorNameColor = document.getElementById('text-color-name-color') as HTMLSpanElement;
 
 const textColorNameSimple = document.getElementById('text-color-name-simple') as HTMLSpanElement;
+const textColorNameSimpleDistance = document.getElementById('text-color-name-simple-distance') as HTMLSpanElement;
 const textColorNameSimpleRGB = document.getElementById('text-color-name-simple-rgb') as HTMLSpanElement;
 const textColorNameSimpleHex = document.getElementById('text-color-name-simple-hex') as HTMLSpanElement;
 const textColorNameSimpleColor = document.getElementById('text-color-name-simple-color') as HTMLSpanElement;
@@ -101,11 +104,13 @@ function onMouseMove (e: MouseEvent): void {
   textColorColor.style.backgroundColor = `rgb(${roundColors.join(', ')})`;
 
   textColorName.innerText = closestColorName.name;
+  textColorNameDistance.innerText = String(roundFixed(Math.sqrt(closestColorName.distance), 2));
   textColorNameRGB.innerText = closestColorName.color.join(', ');
   textColorNameHex.innerText = RGBColorToHex(closestColorName.color);
   textColorNameColor.style.backgroundColor = `rgb(${closestColorName.color.join(', ')})`;
 
   textColorNameSimple.innerText = closestColorNameSimple.name;
+  textColorNameSimpleDistance.innerText = String(roundFixed(Math.sqrt(closestColorNameSimple.distance), 2));
   textColorNameSimpleRGB.innerText = closestColorNameSimple.color.join(', ');
   textColorNameSimpleHex.innerText = RGBColorToHex(closestColorNameSimple.color);
   textColorNameSimpleColor.style.backgroundColor = `rgb(${closestColorNameSimple.color.join(', ')})`;
