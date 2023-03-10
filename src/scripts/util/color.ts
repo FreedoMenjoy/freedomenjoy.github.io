@@ -17,3 +17,13 @@ export interface RGBColorName {
   name: string;
   color: RGBColor;
 }
+
+/**
+ * Value ranges: h - [0; 1], s - [0; 1], l - [0; 1]
+ */
+export type HSLColor = [h: number, s: number, l: number];
+
+/**
+ * Value ranges: h - [0; 1], s - [0; 1], v - [0; 1]
+ */
+export type HSVColor = [h: number, s: number, v: number];
