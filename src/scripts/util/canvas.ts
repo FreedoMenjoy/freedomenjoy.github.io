@@ -1,6 +1,20 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { type RGBColor } from './color';
 
+export interface MouseEventPosition {
+  x: number;
+  y: number;
+}
+
+export function canvasMouseEventPosition (canvas: HTMLCanvasElement, event: MouseEvent): MouseEventPosition {
+  const canvasRect = canvas.getBoundingClientRect();
+  const _x = (event.pageX - canvasRect.left - scrollX) / canvasRect.width * canvas.width;
+  const _y = (event.pageY - canvasRect.top - scrollY) / canvasRect.height * canvas.height;
+  const x = Math.min(Math.round(_x), canvas.width - 1);
+  const y = Math.min(Math.round(_y), canvas.height - 1);
+  return { x, y };
+}
+
 export type DistanceWeightFn = (dx: number, dy: number) => number;
 
 export function distanceWeightEuclidean (dx: number, dy: number): number {

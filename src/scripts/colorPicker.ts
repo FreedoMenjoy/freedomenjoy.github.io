@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { canvasGetImageDataAvgColor, distanceWeightConst, distanceWeightEuclidean, distanceWeightEuclidean2, type DistanceWeightFn, distanceWeightManhattan, distanceWeightManhattan2, CanvasUndoableRect } from './util/canvas';
+import { canvasGetImageDataAvgColor, distanceWeightConst, distanceWeightEuclidean, distanceWeightEuclidean2, type DistanceWeightFn, distanceWeightManhattan, distanceWeightManhattan2, CanvasUndoableRect, canvasMouseEventPosition } from './util/canvas';
 import { RGBColorToHex, type RGBColor } from './util/color';
 import { closestRGBColor } from './util/colorClosest';
 import { colorDistanceLabParamspaceSquare } from './util/colorDistance';
@@ -117,11 +117,7 @@ function onMouseMove (e: MouseEvent): void {
   canvasPixelRect?.undo();
   canvasPixelRect = null;
 
-  const _canvasRect = canvas.getBoundingClientRect();
-  const _x = (e.pageX - _canvasRect.left - scrollX) / _canvasRect.width * canvas.width;
-  const _y = (e.pageY - _canvasRect.top - scrollY) / _canvasRect.height * canvas.height;
-  const x = Math.min(Math.round(_x), canvas.width - 1);
-  const y = Math.min(Math.round(_y), canvas.height - 1);
+  const { x, y } = canvasMouseEventPosition(canvas, e);
   console.debug(`x:${x} y:${y}`);
   const rectSize = Math.floor(Number(sliderPointRadiusElement.value));
   const pointDistFn: DistanceWeightFn = Reflect.get(distFns, selectPointDistFnElement.value);
