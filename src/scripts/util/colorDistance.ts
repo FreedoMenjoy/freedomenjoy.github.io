@@ -1,4 +1,5 @@
 import { type RGBColor } from './color';
+import { RGBtoLAB } from './colorConvert';
 
 export type ColorDistanceFn = (rgb1: RGBColor, rgb2: RGBColor) => number;
 
@@ -36,4 +37,19 @@ export function colorDistanceParamspaceSquare (rgb1: RGBColor, rgb2: RGBColor): 
 
 export function colorDistanceParamspace (rgb1: RGBColor, rgb2: RGBColor): number {
   return Math.sqrt(colorDistanceParamspaceSquare(rgb1, rgb2));
+}
+
+export function colorDistanceLabParamspaceSquare (rgb1: RGBColor, rgb2: RGBColor): number {
+  const lab1 = RGBtoLAB(rgb1);
+  const lab2 = RGBtoLAB(rgb2);
+
+  const dL = lab1[0] - lab2[0];
+  const dA = lab1[1] - lab2[1];
+  const dB = lab1[2] - lab2[2];
+
+  return dL * dL + dA * dA + dB * dB;
+}
+
+export function colorDistanceLabParamspace (rgb1: RGBColor, rgb2: RGBColor): number {
+  return Math.sqrt(colorDistanceLabParamspaceSquare(rgb1, rgb2));
 }

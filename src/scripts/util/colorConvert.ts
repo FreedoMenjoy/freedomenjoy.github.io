@@ -1,4 +1,4 @@
-import { type HSLColor, type HSVColor, type RGBColor } from './color';
+import { type LABColor, type HSLColor, type HSVColor, type RGBColor } from './color';
 
 export function RGBtoHSL (rgb: RGBColor): HSLColor {
   const r = rgb[0] / 255;
@@ -86,15 +86,61 @@ export function HSVtoRGB (hsv: HSVColor): RGBColor {
   throw new Error('Unexpected error');
 }
 
+export function RGBtoLAB (rgb: RGBColor): LABColor {
+  const _r = rgb[0] / 255;
+  const _g = rgb[1] / 255;
+  const _b = rgb[2] / 255;
+
+  const r = (_r > 0.04045) ? Math.pow((_r + 0.055) / 1.055, 2.4) : _r / 12.92;
+  const g = (_g > 0.04045) ? Math.pow((_g + 0.055) / 1.055, 2.4) : _g / 12.92;
+  const b = (_b > 0.04045) ? Math.pow((_b + 0.055) / 1.055, 2.4) : _b / 12.92;
+
+  const _x = (r * 0.4124 + g * 0.3576 + b * 0.1805) / 0.95047;
+  const _y = (r * 0.2126 + g * 0.7152 + b * 0.0722) / 1.00000;
+  const _z = (r * 0.0193 + g * 0.1192 + b * 0.9505) / 1.08883;
+
+  const x = (_x > 0.008856) ? Math.pow(_x, 1 / 3) : (7.787 * _x) + 16 / 116;
+  const y = (_y > 0.008856) ? Math.pow(_y, 1 / 3) : (7.787 * _y) + 16 / 116;
+  const z = (_z > 0.008856) ? Math.pow(_z, 1 / 3) : (7.787 * _z) + 16 / 116;
+
+  return [(116 * y) - 16, 500 * (x - y), 200 * (y - z)];
+}
+
+export function LABtoRGB (lab: LABColor): RGBColor {
+  const _y = (lab[0] + 16) / 116;
+  const _x = lab[1] / 500 + _y;
+  const _z = _y - lab[2] / 200;
+
+  const _x3 = _x * _x * _x;
+  const _y3 = _y * _y * _y;
+  const _z3 = _z * _z * _z;
+
+  const x = 0.95047 * ((_x3 > 0.008856) ? _x3 : (_x - 16 / 116) / 7.787);
+  const y = 1.00000 * ((_y3 > 0.008856) ? _y3 : (_y - 16 / 116) / 7.787);
+  const z = 1.08883 * ((_z3 > 0.008856) ? _z3 : (_z - 16 / 116) / 7.787);
+
+  const _r = x * 3.2406 + y * -1.5372 + z * -0.4986;
+  const _g = x * -0.9689 + y * 1.8758 + z * 0.0415;
+  const _b = x * 0.0557 + y * -0.2040 + z * 1.0570;
+
+  const r = (_r > 0.0031308) ? (1.055 * Math.pow(_r, 1 / 2.4) - 0.055) : 12.92 * _r;
+  const g = (_g > 0.0031308) ? (1.055 * Math.pow(_g, 1 / 2.4) - 0.055) : 12.92 * _g;
+  const b = (_b > 0.0031308) ? (1.055 * Math.pow(_b, 1 / 2.4) - 0.055) : 12.92 * _b;
+
+  return [Math.max(0, Math.min(1, r)) * 255,
+    Math.max(0, Math.min(1, g)) * 255,
+    Math.max(0, Math.min(1, b)) * 255];
+}
+
 export class ColorConvertable {
   private readonly _rgb: RGBColor;
 
   private constructor (rgb: RGBColor) {
-    this._rgb = Array.from(rgb) as RGBColor;
+    this._rgb = rgb;
   }
 
   public static fromRGB (rgb: RGBColor): ColorConvertable {
-    return new ColorConvertable(rgb);
+    return new ColorConvertable(Array.from(rgb) as RGBColor);
   }
 
   public static fromHSL (hsl: HSLColor): ColorConvertable {
@@ -103,6 +149,10 @@ export class ColorConvertable {
 
   public static fromHSV (hsv: HSVColor): ColorConvertable {
     return new ColorConvertable(HSVtoRGB(hsv));
+  }
+
+  public static fromLAB (lab: LABColor): ColorConvertable {
+    return new ColorConvertable(LABtoRGB(lab));
   }
 
   public get rgb (): RGBColor {
@@ -115,5 +165,9 @@ export class ColorConvertable {
 
   public get hsv (): HSLColor {
     return RGBtoHSL(this._rgb);
+  }
+
+  public get lab (): LABColor {
+    return RGBtoLAB(this._rgb);
   }
 }

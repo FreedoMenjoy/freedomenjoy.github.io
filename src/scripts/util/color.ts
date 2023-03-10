@@ -27,3 +27,8 @@ export type HSLColor = [h: number, s: number, l: number];
  * Value ranges: h - [0; 1], s - [0; 1], v - [0; 1]
  */
 export type HSVColor = [h: number, s: number, v: number];
+
+/**
+ * Value ranges: l - [0; 100], a,b - [-128;127] (usually)
+ */
+export type LABColor = [l: number, a: number, b: number];
