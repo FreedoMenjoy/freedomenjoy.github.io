@@ -18,6 +18,7 @@ const canvas = forceGetElementById<HTMLCanvasElement>('canvas');
 const canvas2d: CanvasRenderingContext2D = canvas.getContext('2d', { willReadFrequently: true })!;
 
 Object.assign(window, { canvas, canvas2d });
+const canvasRect = canvas.getBoundingClientRect();
 
 const distFns = {
   euclidean: distanceWeightEuclidean,
@@ -53,11 +54,16 @@ function onFileInput (evt: Event): void {
     img.addEventListener('load', function onImageLoad () {
       console.log(`img width:${img.width} height:${img.height}`);
 
-      const canvasRect = canvas.getBoundingClientRect();
+      const widthScale = img.width / canvasRect.width;
+      const heightScale = img.height / canvasRect.height;
+      const maxScale = Math.max(widthScale, heightScale);
 
-      // canvas.width = Math.max(img.width, 200);
-      // canvas.height = Math.max(img.height, 200);
-      canvas2d.drawImage(img, 0, 0, canvasRect.width, canvasRect.height);
+      const width = Math.round(img.width / maxScale);
+      const height = Math.round(img.height / maxScale);
+
+      canvas.width = width;
+      canvas.height = height;
+      canvas2d.drawImage(img, 0, 0, width, height);
     });
   });
 
@@ -67,7 +73,7 @@ function onFileInput (evt: Event): void {
 
 fileInputElement.addEventListener('change', onFileInput);
 
-let canvasRect: CanvasUndoableRect | null = null;
+let canvasPixelRect: CanvasUndoableRect | null = null;
 
 const textColorRGB = forceGetElementById<HTMLSpanElement>('text-color-rgb');
 const textColorHex = forceGetElementById<HTMLSpanElement>('text-color-hex');
@@ -86,8 +92,8 @@ const textColorNameSimpleHex = forceGetElementById<HTMLSpanElement>('text-color-
 const textColorNameSimpleColor = forceGetElementById<HTMLSpanElement>('text-color-name-simple-color');
 
 function onMouseMove (e: MouseEvent): void {
-  canvasRect?.undo();
-  canvasRect = null;
+  canvasPixelRect?.undo();
+  canvasPixelRect = null;
 
   const x = Math.min(e.offsetX, canvas.width - 1);
   const y = Math.min(e.offsetY, canvas.height - 1);
@@ -119,7 +125,7 @@ function onMouseMove (e: MouseEvent): void {
     canvas2d.beginPath();
     canvas2d.lineWidth = 1;
     canvas2d.strokeStyle = 'red';
-    canvasRect = CanvasUndoableRect.rect(canvas2d, color.rectX, color.rectY, color.rectW, color.rectH);
+    canvasPixelRect = CanvasUndoableRect.rect(canvas2d, color.rectX, color.rectY, color.rectW, color.rectH);
     canvas2d.stroke();
   }
 }
