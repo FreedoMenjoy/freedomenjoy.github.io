@@ -118,8 +118,10 @@ function onMouseMove (e: MouseEvent): void {
   canvasPixelRect = null;
 
   const _canvasRect = canvas.getBoundingClientRect();
-  const x = Math.min(Math.round(e.clientX - _canvasRect.left), canvas.width - 1);
-  const y = Math.min(Math.round(e.clientY - _canvasRect.top), canvas.height - 1);
+  const _x = (e.pageX - _canvasRect.left - scrollX) / _canvasRect.width * canvas.width;
+  const _y = (e.pageY - _canvasRect.top - scrollY) / _canvasRect.height * canvas.height;
+  const x = Math.min(Math.round(_x), canvas.width - 1);
+  const y = Math.min(Math.round(_y), canvas.height - 1);
   console.debug(`x:${x} y:${y}`);
   const rectSize = Math.floor(Number(sliderPointRadiusElement.value));
   const pointDistFn: DistanceWeightFn = Reflect.get(distFns, selectPointDistFnElement.value);
