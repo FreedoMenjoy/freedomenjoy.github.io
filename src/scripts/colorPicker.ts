@@ -128,6 +128,7 @@ function onMouseMove (e: MouseEvent): void {
     canvas2d.lineWidth = 1;
     canvas2d.strokeStyle = 'red';
     canvasPixelRect = CanvasUndoableRect.rect(canvas2d, color.rectX, color.rectY, color.rectW, color.rectH);
+    canvas2d.rect(x, y, 1, 1);
     canvas2d.stroke();
   }
 }
