@@ -70,6 +70,7 @@ export const colorNamesSimple: RGBColorName[] = [
   { name: 'Коричневый', color: [150, 75, 0] },
   { name: 'Коричневый серый', color: [70, 69, 49] },
   { name: 'Коричный', color: [123, 63, 0] },
+  { name: 'Красный', color: [255, 0, 0] },
   { name: 'Ярко-зелёный', color: [0, 255, 0] },
   { name: 'Малиново-красный', color: [197, 29, 52] },
   { name: 'Малиново-розовый', color: [179, 68, 108] },
