@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { type RGBColor } from './color';
 
 export type DistanceWeightFn = (dx: number, dy: number) => number;
