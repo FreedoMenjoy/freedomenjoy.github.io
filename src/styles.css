@@ -19,6 +19,12 @@ header {
    background-color: #22292F;
    padding: 10px 0;
 }
+.menu {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
 .menu-wrap {
    display: flex;
    justify-content: space-between;
@@ -539,6 +545,11 @@ h2 {
 footer {
     padding-top: 100px;
     float: both;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 .fot {
     background-color: #22292F;
@@ -555,6 +566,11 @@ footer {
 footer {
     padding-top: 100px;
     float: both;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 .fot {
     background-color: #22292F;
@@ -571,6 +587,11 @@ footer {
 footer {
     padding-top: 100px;
     float: both;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 .fot {
     background-color: #22292F;
