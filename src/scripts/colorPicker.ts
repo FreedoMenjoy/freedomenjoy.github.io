@@ -27,6 +27,8 @@ const distFns = {
   const: distanceWeightConst,
 } as const;
 
+let canvasPixelRect: CanvasUndoableRect | null = null;
+
 function onFileInput (evt: Event): void {
   const files = (evt.target as HTMLInputElement).files;
   if (files == null) return;
@@ -57,6 +59,8 @@ function onFileInput (evt: Event): void {
       canvas.width = width;
       canvas.height = height;
       canvas2d.drawImage(img, 0, 0, width, height);
+
+      canvasPixelRect = null;
     });
   });
 
@@ -65,8 +69,6 @@ function onFileInput (evt: Event): void {
 }
 
 fileInputElement.addEventListener('change', onFileInput);
-
-let canvasPixelRect: CanvasUndoableRect | null = null;
 
 const textColorRGB = forceGetElementById<HTMLSpanElement>('text-color-rgb');
 const textColorHex = forceGetElementById<HTMLSpanElement>('text-color-hex');
@@ -109,6 +111,9 @@ function displayColor (color: RGBColor): void {
 }
 
 function onMouseMove (e: MouseEvent): void {
+  canvasPixelRect?.undo();
+  canvasPixelRect = null;
+
   const x = Math.min(e.offsetX, canvas.width - 1);
   const y = Math.min(e.offsetY, canvas.height - 1);
   console.debug(`x:${x} y:${y}`);
