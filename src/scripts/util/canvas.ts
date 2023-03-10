@@ -68,23 +68,23 @@ export class CanvasUndoableRect {
   ) {}
 
   public get effectiveX (): number {
-    return this.x - this.lineWidth;
+    return this.x - this.lineWidth - 1;
   }
 
   public get effectiveY (): number {
-    return this.y - this.lineWidth;
+    return this.y - this.lineWidth - 1;
   }
 
   public get effectiveWidth (): number {
-    return this.width + this.lineWidth + this.lineWidth;
+    return this.width + this.lineWidth + this.lineWidth + 2;
   }
 
   public get effectiveHeight (): number {
-    return this.height + this.lineWidth + this.lineWidth;
+    return this.height + this.lineWidth + this.lineWidth + 2;
   }
 
   public static rect (canvas2d: CanvasRenderingContext2D, x: number, y: number, width: number, height: number): CanvasUndoableRect {
-    const lineWidth = canvas2d.lineWidth;
+    const lineWidth = canvas2d.lineWidth + 1;
     const data = canvas2d.getImageData(x - lineWidth, y - lineWidth, width + lineWidth + lineWidth, height + lineWidth + lineWidth);
     canvas2d.rect(x, y, width, height);
     return new CanvasUndoableRect(canvas2d, x, y, width, height, lineWidth, data);
