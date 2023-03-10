@@ -1,4 +1,4 @@
-import { type RGBColor } from "./color";
+import { type RGBColor } from './color';
 
 export type DistanceWeightFn = (dx: number, dy: number) => number;
 

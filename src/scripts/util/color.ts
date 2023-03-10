@@ -1,4 +1,4 @@
-import { clamp } from "./math";
+import { clamp } from './math';
 
 export type RGBColor = [r: number, g: number, b: number];
 

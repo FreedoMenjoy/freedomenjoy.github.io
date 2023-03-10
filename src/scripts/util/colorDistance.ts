@@ -1,4 +1,4 @@
-import { RGBColor } from "./color";
+import { type RGBColor } from './color';
 
 export type ColorDistanceFn = (rgb1: RGBColor, rgb2: RGBColor) => number;
 

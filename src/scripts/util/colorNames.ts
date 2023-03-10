@@ -1,6 +1,6 @@
-import { type ColorName } from "./color";
+import { type ColorName } from './color';
 
-export const colorNames: Array<ColorName> = [
+export const colorNames: ColorName[] = [
   { name: 'Абрикосовый', color: [251, 206, 177] },
   { name: 'Абрикосовый Крайола', color: [253, 217, 181] },
   { name: 'Агатовый серый', color: [181, 184, 177] },

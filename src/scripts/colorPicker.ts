@@ -1,10 +1,11 @@
-import { canvasGetImageDataAvgColor, distanceWeightConst, distanceWeightEuclidean, distanceWeightEuclidean2, type DistanceWeightFn, distanceWeightManhattan, distanceWeightManhattan2, CanvasUndoableRect } from "./util/canvas";
-import { RGBColorToHex, type RGBColor } from "./util/color";
-import { colorClosest } from "./util/colorClosest";
-import { ColorDistanceFn, colorDistanceParamspaceSquare, colorDistanceRedmeanSquare, colorDistanceWeightedSquare } from "./util/colorDistance";
-import { colorNames } from "./util/colorNames";
-import { colorNamesSimple } from "./util/colorNamesSimple";
-import { addEventListenerMouseDownMove } from "./util/EventListener";
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { canvasGetImageDataAvgColor, distanceWeightConst, distanceWeightEuclidean, distanceWeightEuclidean2, type DistanceWeightFn, distanceWeightManhattan, distanceWeightManhattan2, CanvasUndoableRect } from './util/canvas';
+import { RGBColorToHex, type RGBColor } from './util/color';
+import { colorClosest } from './util/colorClosest';
+import { type ColorDistanceFn, colorDistanceParamspaceSquare, colorDistanceRedmeanSquare, colorDistanceWeightedSquare } from './util/colorDistance';
+import { colorNames } from './util/colorNames';
+import { colorNamesSimple } from './util/colorNamesSimple';
+import { addEventListenerMouseDownMove } from './util/EventListener';
 
 const sliderPointRadiusElement = document.getElementById('input-point-radius') as HTMLInputElement;
 const selectPointDistFnElement = document.getElementById('select-point-dist-fn') as HTMLOptionElement;

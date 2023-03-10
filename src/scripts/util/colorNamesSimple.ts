@@ -1,4 +1,4 @@
-import { type ColorName } from "./color";
+import { type ColorName } from './color';
 
 export const colorNamesSimple: Array<ColorName> = [
   { name: 'Чёрный', color: [0, 0, 0] },
