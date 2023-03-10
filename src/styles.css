@@ -1069,3 +1069,7 @@ h3 {
 .glavnaya {
     margin-bottom: 50px;
 }
+.check-colour {
+    margin: 0 auto;
+    text-align: center;
+}
