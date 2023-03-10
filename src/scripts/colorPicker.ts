@@ -31,7 +31,7 @@ const colorDistFns = {
   redmean: colorDistanceRedmeanSquare,
   weighted: colorDistanceWeightedSquare,
   paramspace: colorDistanceParamspaceSquare,
-};
+} as const;
 
 function onFileInput (evt: Event): void {
   const files = (evt.target as HTMLInputElement).files;
@@ -92,24 +92,23 @@ function onMouseMove (e: MouseEvent): void {
   const x = Math.min(e.offsetX, canvas.width - 1);
   const y = Math.min(e.offsetY, canvas.height - 1);
   const rectSize = Math.floor(Number(sliderPointRadiusElement.value));
-  const distFn: DistanceWeightFn = Reflect.get(distFns, selectPointDistFnElement.value);
+  const pointDistFn: DistanceWeightFn = Reflect.get(distFns, selectPointDistFnElement.value);
   const colorDistFn: ColorDistanceFn = Reflect.get(colorDistFns, selectColorDistFnElement.value);
-  const color = canvasGetImageDataAvgColor(canvas, x, y, { rectSize, distFn });
-  const roundColors: RGBColor = color.map(Math.round) as RGBColor;
-  // textElement.innerText = `x:${x} y:${y} color:[${roundColors.join(', ')}] rectSize:${rectSize} distFn:${distFn.name} rect:[${color.rectX}, ${color.rectY}, ${color.rectW}, ${color.rectH}: ${color.rectX + color.rectW - 1}, ${color.rectY + color.rectH - 1}]`;
-  const closestColorName = colorClosest(color, colorNames, colorDistFn);
-  const closestColorNameSimple = colorClosest(color, colorNamesSimple, colorDistFn);
+  const color = canvasGetImageDataAvgColor(canvas, x, y, { rectSize, distFn: pointDistFn });
 
+  const roundColors: RGBColor = color.map(Math.round) as RGBColor;
   textColorRGB.innerText = roundColors.join(', ');
   textColorHex.innerText = RGBColorToHex(roundColors);
   textColorColor.style.backgroundColor = `rgb(${roundColors.join(', ')})`;
 
+  const closestColorName = colorClosest(color, colorNames, colorDistFn);
   textColorName.innerText = closestColorName.name;
   textColorNameDistance.innerText = String(roundFixed(Math.sqrt(closestColorName.distance), 2));
   textColorNameRGB.innerText = closestColorName.color.join(', ');
   textColorNameHex.innerText = RGBColorToHex(closestColorName.color);
   textColorNameColor.style.backgroundColor = `rgb(${closestColorName.color.join(', ')})`;
 
+  const closestColorNameSimple = colorClosest(color, colorNamesSimple, colorDistFn);
   textColorNameSimple.innerText = closestColorNameSimple.name;
   textColorNameSimpleDistance.innerText = String(roundFixed(Math.sqrt(closestColorNameSimple.distance), 2));
   textColorNameSimpleRGB.innerText = closestColorNameSimple.color.join(', ');
