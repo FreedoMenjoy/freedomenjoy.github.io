@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { type RGBColor } from './color';
+import { clamp as mathClamp } from './math';
 
 export interface MouseEventPosition {
   x: number;
   y: number;
 }
 
-export function canvasMouseEventPosition (canvas: HTMLCanvasElement, event: MouseEvent): MouseEventPosition {
+export function canvasMouseEventPosition (canvas: HTMLCanvasElement, event: MouseEvent, clamp: boolean = true): MouseEventPosition {
   const canvasRect = canvas.getBoundingClientRect();
-  const _x = (event.pageX - canvasRect.left - scrollX) / canvasRect.width * canvas.width;
-  const _y = (event.pageY - canvasRect.top - scrollY) / canvasRect.height * canvas.height;
-  const x = Math.min(Math.round(_x), canvas.width - 1);
-  const y = Math.min(Math.round(_y), canvas.height - 1);
+  const x = Math.round((event.pageX - canvasRect.left - scrollX) / canvasRect.width * canvas.width);
+  const y = Math.round((event.pageY - canvasRect.top - scrollY) / canvasRect.height * canvas.height);
+  if (clamp) return { x: mathClamp(0, x, canvas.width - 1), y: mathClamp(0, x, canvas.height - 1) };
   return { x, y };
 }
 
