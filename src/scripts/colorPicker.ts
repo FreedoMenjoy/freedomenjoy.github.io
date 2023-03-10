@@ -110,6 +110,9 @@ function displayColor (color: RGBColor): void {
   textColorNameSimpleColor.style.backgroundColor = `rgb(${closestColorNameSimple.color.join(', ')})`;
 }
 
+const textX = forceGetElementById<HTMLSpanElement>('text-x');
+const textY = forceGetElementById<HTMLSpanElement>('text-y');
+
 function onMouseMove (e: MouseEvent): void {
   canvasPixelRect?.undo();
   canvasPixelRect = null;
@@ -121,6 +124,9 @@ function onMouseMove (e: MouseEvent): void {
   const rectSize = Math.floor(Number(sliderPointRadiusElement.value));
   const pointDistFn: DistanceWeightFn = Reflect.get(distFns, selectPointDistFnElement.value);
   const color = canvasGetImageDataAvgColor(canvas, x, y, { rectSize, distFn: pointDistFn });
+
+  textX.innerText = String(x);
+  textY.innerText = String(y);
 
   displayColor(color);
 
