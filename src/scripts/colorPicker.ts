@@ -14,7 +14,7 @@ const selectPointDistFnElement = forceGetElementById<HTMLOptionElement>('select-
 const checkboxPointDraw = forceGetElementById<HTMLInputElement>('input-point-draw');
 const fileInputElement = forceGetElementById<HTMLInputElement>('file-input');
 const canvas = forceGetElementById<HTMLCanvasElement>('canvas');
-const canvas2d: CanvasRenderingContext2D = canvas.getContext('2d', { willReadFrequently: true })!;
+const canvas2d: CanvasRenderingContext2D = canvas.getContext('2d', { willReadFrequently: true, alpha: false })!;
 
 Object.assign(window, { canvas, canvas2d });
 const canvasRect = canvas.getBoundingClientRect();
