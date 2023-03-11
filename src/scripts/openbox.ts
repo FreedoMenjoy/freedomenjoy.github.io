@@ -10,12 +10,14 @@ export function closebox (selector: string): void {
   element.style.display = 'none';
 }
 
-export function togglebox (selector: string): void {
+export function togglebox (selector: string, display: string = 'block'): boolean {
   const element = forceQuerySelector<HTMLElement>(selector);
   if (element.style.display === 'none') {
-    element.style.display = 'block';
+    element.style.display = display;
+    return true;
   } else {
     element.style.display = 'none';
+    return false;
   }
 }
 
