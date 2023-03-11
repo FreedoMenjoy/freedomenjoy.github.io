@@ -1,11 +1,18 @@
-export function addEventListenerMouseDownMove<T extends HTMLElement = HTMLElement> (target: T, whileMove: (this: T, e: MouseEvent) => any, { onmousedown = true, stopPropagation = true } = {}): void {
+export interface AddEventListenerMouseDownMoveOptions {
+  onmousedown?: boolean;
+  stopPropagation?: boolean;
+  buttons?: number[];
+}
+
+export function addEventListenerMouseDownMove<T extends HTMLElement = HTMLElement> (target: T, whileMove: (this: T, e: MouseEvent) => any, options?: AddEventListenerMouseDownMoveOptions): void {
   function boundWhileMove (e: MouseEvent): void {
     whileMove.call(target, e);
   }
 
   let ismousedown: boolean = false;
 
-  window.addEventListener('mousedown', () => {
+  window.addEventListener('mousedown', (event) => {
+    if (options?.buttons != null && !options.buttons.includes(event.which)) return;
     ismousedown = true;
   });
 
@@ -13,7 +20,7 @@ export function addEventListenerMouseDownMove<T extends HTMLElement = HTMLElemen
     ismousedown = false;
   });
 
-  if (onmousedown) {
+  if (options?.onmousedown) {
     target.addEventListener('mousedown', (event) => {
       whileMove.call(target, event);
     });
@@ -21,7 +28,7 @@ export function addEventListenerMouseDownMove<T extends HTMLElement = HTMLElemen
 
   target.addEventListener('mousemove', (event) => {
     if (!ismousedown) return;
-    if (stopPropagation) event.stopPropagation(); // remove if you do want it to propagate ...
+    if (options?.stopPropagation) event.stopPropagation(); // remove if you do want it to propagate ...
     whileMove.call(target, event);
   });
 }

@@ -150,4 +150,4 @@ function onMouseMove (e: MouseEvent): void {
   }
 }
 
-addEventListenerMouseDownMove(canvas, onMouseMove);
+addEventListenerMouseDownMove(canvas, onMouseMove, { buttons: [1] });
