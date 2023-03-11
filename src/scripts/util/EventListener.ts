@@ -5,28 +5,24 @@ export interface AddEventListenerMouseDownMoveOptions {
 }
 
 export function addEventListenerMouseDownMove<T extends HTMLElement = HTMLElement> (target: T, whileMove: (this: T, e: MouseEvent) => any, options?: AddEventListenerMouseDownMoveOptions): void {
-  function boundWhileMove (e: MouseEvent): void {
-    whileMove.call(target, e);
-  }
-
   let ismousedown: boolean = false;
 
-  window.addEventListener('mousedown', (event) => {
+  window.addEventListener('mousedown', function onWindowMouseup (event) {
     if (options?.buttons != null && !options.buttons.includes(event.which)) return;
     ismousedown = true;
   });
 
-  window.addEventListener('mouseup', () => {
+  window.addEventListener('mouseup', function onWindowMouseup () {
     ismousedown = false;
   });
 
   if (options?.onmousedown) {
-    target.addEventListener('mousedown', (event) => {
+    target.addEventListener('mousedown', function onMousedown (event) {
       whileMove.call(target, event);
     });
   }
 
-  target.addEventListener('mousemove', (event) => {
+  target.addEventListener('mousemove', function onMousemove (event) {
     if (!ismousedown) return;
     if (options?.stopPropagation) event.stopPropagation(); // remove if you do want it to propagate ...
     whileMove.call(target, event);
