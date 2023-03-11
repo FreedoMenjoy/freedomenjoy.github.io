@@ -29,18 +29,20 @@ const distFns = {
 
 const textSliderPointRadius = forceGetElementById<HTMLSpanElement>('text-input-point-radius');
 
-sliderPointRadiusElement.addEventListener('input', (e) => {
+function updateTextSliderPointRadius (): void {
   textSliderPointRadius.innerText = String(sliderPointRadiusElement.value);
-});
+}
 
-sliderPointRadiusElement.addEventListener('change', (e) => {
-  textSliderPointRadius.innerText = String(sliderPointRadiusElement.value);
-});
+sliderPointRadiusElement.addEventListener('input', updateTextSliderPointRadius);
+
+sliderPointRadiusElement.addEventListener('change', updateTextSliderPointRadius);
+
+updateTextSliderPointRadius();
 
 let canvasPixelRect: CanvasUndoableRect | null = null;
 
-function onFileInput (evt: Event): void {
-  const files = (evt.target as HTMLInputElement).files;
+function onFileInput (fileEvent: Event): void {
+  const files = (fileEvent.target as HTMLInputElement).files;
   if (files == null) return;
   const file = files[0];
 
@@ -48,8 +50,8 @@ function onFileInput (evt: Event): void {
 
   const reader = new FileReader();
 
-  reader.addEventListener('load', (e) => {
-    console.debug('file', file, e, reader.result);
+  reader.addEventListener('load', function onReaderLoad (readerEvent) {
+    console.debug('file', file, readerEvent, reader.result);
     if (reader.result == null) return;
     const img = document.createElement('img');
     // Render thumbnail.
