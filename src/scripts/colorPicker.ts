@@ -27,6 +27,16 @@ const distFns = {
   const: distanceWeightConst,
 } as const;
 
+const textSliderPointRadius = forceGetElementById<HTMLSpanElement>('text-input-point-radius');
+
+sliderPointRadiusElement.addEventListener('input', (e) => {
+  textSliderPointRadius.innerText = String(sliderPointRadiusElement.value);
+});
+
+sliderPointRadiusElement.addEventListener('change', (e) => {
+  textSliderPointRadius.innerText = String(sliderPointRadiusElement.value);
+});
+
 let canvasPixelRect: CanvasUndoableRect | null = null;
 
 function onFileInput (evt: Event): void {
