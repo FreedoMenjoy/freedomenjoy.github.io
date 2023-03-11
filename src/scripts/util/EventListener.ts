@@ -8,7 +8,7 @@ export function addEventListenerMouseDownMove<T extends HTMLElement = HTMLElemen
   let ismousedown: boolean = false;
 
   window.addEventListener('mousedown', function onWindowMouseup (event) {
-    if (options?.buttons != null && !options.buttons.includes(event.which)) return;
+    if (options?.buttons != null && !options.buttons.some(button => event.buttons & button)) return;
     ismousedown = true;
   });
 
