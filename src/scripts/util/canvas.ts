@@ -11,7 +11,7 @@ export function canvasMouseEventPosition (canvas: HTMLCanvasElement, event: Mous
   const canvasRect = canvas.getBoundingClientRect();
   const x = Math.round((event.pageX - canvasRect.left - scrollX) / canvasRect.width * canvas.width);
   const y = Math.round((event.pageY - canvasRect.top - scrollY) / canvasRect.height * canvas.height);
-  if (clamp) return { x: mathClamp(0, x, canvas.width - 1), y: mathClamp(0, x, canvas.height - 1) };
+  if (clamp) return { x: mathClamp(0, x, canvas.width - 1), y: mathClamp(0, y, canvas.height - 1) };
   return { x, y };
 }
 
