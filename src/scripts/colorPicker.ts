@@ -159,5 +159,5 @@ canvas.addEventListener('contextmenu', function onCanvasContextmenu (event) {
 const textLogs = forceGetElementById<HTMLCanvasElement>('text-log');
 
 canvas.addEventListener('mousedown', (event) => {
-  textLogs.innerText = `button: ${event.button} buttons: ${event.buttons} type: ${event.type}`;
+  // textLogs.innerText = `button: ${event.button} buttons: ${event.buttons} type: ${event.type}`;
 });
