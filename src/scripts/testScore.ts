@@ -3,7 +3,7 @@ import { forceQuerySelector } from './util/forceQuerySelector';
 const scoreElement = forceQuerySelector<HTMLSpanElement>('#score');
 
 export function calculateScore (): void {
-  const inputs = document.querySelectorAll<HTMLInputElement>('#test input');
+  const inputs = document.querySelectorAll<HTMLInputElement>('#test-box input');
 
   let correct = 0;
   inputs.forEach(input => {
