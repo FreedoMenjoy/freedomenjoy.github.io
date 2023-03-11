@@ -12,6 +12,7 @@ import { roundFixed } from './util/math';
 const sliderPointRadiusElement = forceGetElementById<HTMLInputElement>('input-point-radius');
 const selectPointDistFnElement = forceGetElementById<HTMLOptionElement>('select-point-dist-fn');
 const checkboxPointDraw = forceGetElementById<HTMLInputElement>('input-point-draw');
+const checkboxDrawZoom = forceGetElementById<HTMLInputElement>('input-draw-zoom');
 const fileInputElement = forceGetElementById<HTMLInputElement>('file-input');
 const canvas = forceGetElementById<HTMLCanvasElement>('canvas');
 const canvas2d: CanvasRenderingContext2D = canvas.getContext('2d', { willReadFrequently: true, alpha: false })!;
@@ -65,14 +66,18 @@ function onFileInput (fileEvent: Event): void {
       const heightScale = img.height / canvasRect.height;
       const maxScale = Math.max(widthScale, heightScale);
 
-      const width = Math.round(img.width / maxScale);
-      const height = Math.round(img.height / maxScale);
+      const drawZoom = checkboxDrawZoom.checked;
+
+      const width = drawZoom ? img.width : Math.round(img.width / maxScale);
+      const height = drawZoom ? img.height : Math.round(img.height / maxScale);
 
       canvas.width = width;
       canvas.height = height;
       canvas2d.drawImage(img, 0, 0, width, height);
 
       canvasPixelRect = null;
+
+      img.remove();
     });
   });
 

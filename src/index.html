@@ -34,7 +34,7 @@
     <h1 class="glavnaya">Узнать цвет</h1>
     <div>
       <div class="canvas">
-        <canvas id="canvas" width="500" height="500" <!--hidden="hidden" -->> </canvas>
+        <canvas id="canvas" width="500" height="500" style="max-width: 500px; max-height: 500px" <!--hidden="hidden" -->> </canvas>
       </div>
       <div class="check-colour">
         <div>
@@ -55,6 +55,9 @@
           <br>
           <span>Показывать зону точки</span>
           <input id="input-point-draw" type="checkbox">
+          <br>
+          <span>Сохранить качество изображения</span>
+          <input id="input-draw-zoom" type="checkbox" checked>
         </div>
         <br>
         <span>
