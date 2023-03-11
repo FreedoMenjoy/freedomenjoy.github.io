@@ -152,6 +152,6 @@ function onMouseMove (e: MouseEvent): void {
 
 addEventListenerMouseDownMove(canvas, onMouseMove, { buttons: [1] });
 
-canvas.addEventListener('contextmenu', (event) => {
+canvas.addEventListener('contextmenu', function onCanvasContextmenu (event) {
   event.preventDefault();
 });
