@@ -1,5 +1,5 @@
 import { type RGBColor } from './color';
-import { RGBtoLAB } from './colorConvert';
+import { RGBtoHSV, RGBtoLAB } from './colorConvert';
 
 export type ColorDistanceFn = (rgb1: RGBColor, rgb2: RGBColor) => number;
 
@@ -52,4 +52,33 @@ export function colorDistanceLabParamspaceSquare (rgb1: RGBColor, rgb2: RGBColor
 
 export function colorDistanceLabParamspace (rgb1: RGBColor, rgb2: RGBColor): number {
   return Math.sqrt(colorDistanceLabParamspaceSquare(rgb1, rgb2));
+}
+
+export function colorDistanceHSVMetricSquare (rgb1: RGBColor, rgb2: RGBColor): number {
+  const [h1, s1, v1] = RGBtoHSV(rgb1);
+  const [h2, s2, v2] = RGBtoHSV(rgb2);
+  const rawdh = Math.abs(h1 - h2);
+  const dh = Math.min(rawdh, 1 - rawdh);
+  const ds = s1 - s2;
+  const dv = v1 - v2;
+  return dh * dh + ds * ds + dv * dv;
+}
+
+export function colorDistanceHSVMetric (rgb1: RGBColor, rgb2: RGBColor): number {
+  return Math.sqrt(colorDistanceHSVMetric(rgb1, rgb2));
+}
+
+export function colorDistanceHSVConeSquared (rgb1: RGBColor, rgb2: RGBColor): number {
+  const hsv1 = RGBtoHSV(rgb1);
+  const hsv2 = RGBtoHSV(rgb2);
+  const h1 = hsv1[0] * Math.PI; const s1 = hsv1[1]; const v1 = hsv1[2];
+  const h2 = hsv2[0] * Math.PI; const s2 = hsv2[1]; const v2 = hsv2[2];
+  const sins = Math.sin(h1) * s1 * v1 - Math.sin(h2) * s2 * v2;
+  const coss = Math.cos(h1) * s1 * v1 - Math.cos(h2) * s2 * v2;
+  const vs = v1 - v2;
+  return sins * sins + coss * coss + vs * vs;
+}
+
+export function colorDistanceHSVCone (rgb1: RGBColor, rgb2: RGBColor): number {
+  return Math.sqrt(colorDistanceHSVConeSquared(rgb1, rgb2));
 }
