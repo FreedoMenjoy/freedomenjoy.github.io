@@ -1,4 +1,4 @@
-import { forceGetElementById } from './util/forceQuerySelector';
+import { forceGetElementById, forceQuerySelector } from './util/forceQuerySelector';
 import { shuffleArray } from './util/math';
 
 const testBoxElement = forceGetElementById<HTMLDivElement>('test-box');
@@ -35,4 +35,19 @@ export function calculateScore (): void {
   totalElement.innerText = String(currentTestElements.length);
 }
 
-Object.assign(window, { testElements, shuffleTests, calculateScore });
+export function clearTests (all = true): number {
+  const tests = all ? testElements : Array.from(document.querySelectorAll<HTMLDivElement>('#test-box div'));
+  for (const test of tests) {
+    const input = forceQuerySelector<HTMLInputElement>('input', test);
+    input.value = '';
+    input.classList.remove('correct', 'incorrect');
+  }
+  return tests.length;
+}
+
+Object.assign(window, {
+  testElements,
+  shuffleTests,
+  calculateScore,
+  clearTests,
+});
