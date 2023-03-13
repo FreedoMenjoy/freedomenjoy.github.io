@@ -1,20 +1,20 @@
-import { forceGetElementById, forceQuerySelector } from './util/forceQuerySelector';
+import { forceGetElementById } from './util/forceQuerySelector';
 import { shuffleArray } from './util/math';
 
-const scoreElement = forceQuerySelector<HTMLSpanElement>('#score');
+const testBox = forceGetElementById<HTMLDivElement>('test-box');
+const tests = Array.from(document.querySelectorAll<HTMLDivElement>('#test-box div'));
+const scoreElement = forceGetElementById<HTMLSpanElement>('score');
+const totalElement = forceGetElementById<HTMLSpanElement>('total');
 
-export function shuffleTests (): void {
-  const testBox = forceGetElementById<HTMLDivElement>('test-box');
-  const tests = Array.from(document.querySelectorAll<HTMLDivElement>('#test-box div'));
+export function shuffleTests (num = tests.length): void {
   for (const test of tests) {
     testBox.removeChild(test);
   }
-  for (const test of shuffleArray(tests)) {
+  const newTests = shuffleArray(tests).slice(0, num);
+  for (const test of newTests) {
     testBox.appendChild(test);
   }
 }
-
-shuffleTests();
 
 export function calculateScore (): void {
   const inputs = document.querySelectorAll<HTMLInputElement>('#test-box input');
@@ -32,6 +32,7 @@ export function calculateScore (): void {
   });
 
   scoreElement.innerText = String(correct);
+  totalElement.innerText = String(inputs.length);
 }
 
 Object.assign(window, { shuffleTests, calculateScore });
