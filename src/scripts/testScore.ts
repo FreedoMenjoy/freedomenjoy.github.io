@@ -7,7 +7,7 @@ const scoreElement = forceGetElementById<HTMLSpanElement>('score');
 const totalElement = forceGetElementById<HTMLSpanElement>('total');
 
 export function shuffleTests (num = testElements.length): void {
-  for (const test of testElements) {
+  for (const test of Array.from(testBoxElement.childNodes)) {
     testBoxElement.removeChild(test);
   }
   const newTests = shuffleArray(testElements).slice(0, num);
