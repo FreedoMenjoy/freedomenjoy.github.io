@@ -303,4 +303,8 @@ export const colorNamesSimple: RGBColorName[] = [
   { name: 'Ярко-синий', color: [0, 124, 173] },
   { name: 'Ярко-сиреневый', color: [224, 176, 255] },
   { name: 'Ярко-фиолетовый', color: [205, 0, 205] },
+
+  { name: 'Синий', color: [3, 45, 181] },
+  { name: 'Темный синий', color: [0, 33, 137] },
+  { name: 'Насыщенный яркий синий', color: [14, 86, 173] }
 ];
