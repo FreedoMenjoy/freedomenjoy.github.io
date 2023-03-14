@@ -271,7 +271,7 @@
           </div>
           <button id="button" onclick="calculateScore(); openbox('.score');">Проверить</button>
           <div class="score" style="display: none;">
-            <p>Ты пошёл тест! Всего верных ответов <span id="score">...</span> из 16. </p>
+            <p>Ты пошёл тест! Всего верных ответов <span id="score">...</span> из <span id="total">...</span>. </p>
             <br>
             <p>Если ты набрал менее 10 правильных ответов, то следует обратиться к специалисту.</p>
           </div>
@@ -288,4 +288,7 @@
   <script src="./scripts/scrollToTop.ts"></script>
   <script src="./scripts/openbox.ts"></script>
   <script src="./scripts/testScore.ts"></script>
+  <script>
+    shuffleTests(12);
+  </script>
 </html>

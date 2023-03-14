@@ -1,37 +1,53 @@
 import { forceGetElementById, forceQuerySelector } from './util/forceQuerySelector';
 import { shuffleArray } from './util/math';
 
-const scoreElement = forceQuerySelector<HTMLSpanElement>('#score');
+const testBoxElement = forceGetElementById<HTMLDivElement>('test-box');
+const testElements = Array.from(document.querySelectorAll<HTMLDivElement>('#test-box div'));
+const scoreElement = forceGetElementById<HTMLSpanElement>('score');
+const totalElement = forceGetElementById<HTMLSpanElement>('total');
 
-export function shuffleTests (): void {
-  const testBox = forceGetElementById<HTMLDivElement>('test-box');
-  const tests = Array.from(document.querySelectorAll<HTMLDivElement>('#test-box div'));
-  for (const test of tests) {
-    testBox.removeChild(test);
+export function shuffleTests (num = testElements.length): void {
+  for (const test of testElements) {
+    testBoxElement.removeChild(test);
   }
-  for (const test of shuffleArray(tests)) {
-    testBox.appendChild(test);
+  const newTests = shuffleArray(testElements).slice(0, num);
+  for (const test of newTests) {
+    testBoxElement.appendChild(test);
   }
 }
 
-shuffleTests();
-
 export function calculateScore (): void {
-  const inputs = document.querySelectorAll<HTMLInputElement>('#test-box input');
+  const currentTestElements = document.querySelectorAll<HTMLInputElement>('#test-box input');
 
   let correct = 0;
-  inputs.forEach(input => {
-    if (Number(input.value) === Number(input.dataset.right)) {
-      input.classList.add('correct');
-      input.classList.remove('incorrect');
+  currentTestElements.forEach(testElement => {
+    if (Number(testElement.value) === Number(testElement.dataset.right)) {
+      testElement.classList.add('correct');
+      testElement.classList.remove('incorrect');
       correct++;
     } else {
-      input.classList.remove('correct');
-      input.classList.add('incorrect');
+      testElement.classList.remove('correct');
+      testElement.classList.add('incorrect');
     }
   });
 
   scoreElement.innerText = String(correct);
+  totalElement.innerText = String(currentTestElements.length);
 }
 
-Object.assign(window, { shuffleTests, calculateScore });
+export function clearTests (all = true): number {
+  const tests = all ? testElements : Array.from(document.querySelectorAll<HTMLDivElement>('#test-box div'));
+  for (const test of tests) {
+    const input = forceQuerySelector<HTMLInputElement>('input', test);
+    input.value = '';
+    input.classList.remove('correct', 'incorrect');
+  }
+  return tests.length;
+}
+
+Object.assign(window, {
+  testElements,
+  shuffleTests,
+  calculateScore,
+  clearTests,
+});
