@@ -269,12 +269,15 @@
               <input data-right="3">
             </div>
           </div>
-          <button id="button" onclick="calculateScore(); openbox('.score');">Проверить</button>
+          <div class="buttons">
+            <button id="button" onclick="calculateScore(); openbox('.score');">Проверить</button>
+            <button id="button" onclick=" clearTests(); closebox('.score');">Сбросить ответы</button>
+          </div>
           <div class="score" style="display: none;">
            <br>
             <p>Ты пошёл тест! Всего верных ответов <span id="score">...</span> из <span id="total">...</span>. </p>
             <br>
-            <p>Если ты набрал менее 10 правильных ответов, то следует обратиться к специалисту.</p>
+            <p>Если ты набрал менее 8 правильных ответов, то следует обратиться к специалисту.</p>
           </div>
         </div>
       </div>
