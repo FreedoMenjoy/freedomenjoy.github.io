@@ -46,11 +46,11 @@ export function clearTests (all = true): number {
   return tests.length;
 }
 
-export function toggleboxTests (): boolean {
+export function toggleboxTests (num?: number): boolean {
   const enabled = togglebox('#box');
   console.log('toggleboxTests', enabled);
   if (enabled) {
-    shuffleTests();
+    shuffleTests(num);
     return true;
   } else {
     clearTests();
