@@ -25,3 +25,9 @@ export async function forceGetElementByIdRequestFullscreen (elementId: string, o
   const element = forceGetElementById(elementId, origin);
   await requestFullscreen(element);
 }
+
+Object.assign(window, {
+  requestFullscreen,
+  forceQuerySelectorRequestFullscreen,
+  forceGetElementByIdRequestFullscreen,
+});
