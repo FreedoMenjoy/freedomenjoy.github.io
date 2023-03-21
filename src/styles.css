@@ -1368,3 +1368,29 @@ footer {
   margin: 0 400px;
 }
 }
+
+.denycopy {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  /*
+    Introduced in Internet Explorer 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.allowcopy {
+  -moz-user-select: text;
+  -khtml-user-select: text;
+  -webkit-user-select: text;
+
+  /*
+    Introduced in Internet Explorer 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: text;
+  user-select: text;
+}
