@@ -100,4 +100,15 @@
   <script src="./scripts/menuCheckbox.ts"></script>
   <script src="./scripts/colorPicker.ts"></script>
   <script src="./scripts/clickCopy.ts"></script>
+  <script type="text/javascript">
+
+               document.ondragstart = noselect;
+
+               document.onselectstart = noselect;
+
+               document.oncontextmenu = noselect;
+
+               function noselect() {return false;}
+
+</script>
 </html>
