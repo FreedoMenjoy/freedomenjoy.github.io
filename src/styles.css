@@ -1332,3 +1332,39 @@ footer {
 .main-text p {
   margin-bottom: 70px;
 }
+
+#instruction {
+  width: auto;
+  height: 640px;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+@media (min-width: 800px) {
+#instruction {
+  margin: 0 200px;
+}
+}
+
+@media (max-width: 800px) {
+#instruction {
+  margin: 0 100px;
+}
+}
+@media (max-width: 600px) {
+#instruction {
+  margin: 0 50px;
+}
+}
+@media (max-width: 400px) {
+#instruction {
+  margin: 0 20px;
+}
+}
+@media (min-width: 1200px) {
+#instruction {
+  margin: 0 400px;
+}
+}
