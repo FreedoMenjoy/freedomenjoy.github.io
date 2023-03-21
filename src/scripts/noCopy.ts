@@ -18,8 +18,28 @@ export function initGlobalNoSelect (origin: GlobalEventHandlers = document): voi
   origin.oncontextmenu = noSelectHandler;
 }
 
+function initUnselectable (node: Element): void {
+  if (node.classList?.contains(noSelectClass)) return;
+  if (node.nodeType === 1) {
+    node.setAttribute('unselectable', 'on');
+    // node.classList?.add('denycopy');
+  }
+  for (let i = 0; i < node.children.length; i++) {
+    const child = node.children[i];
+    initUnselectable(child);
+  }
+}
+
+export function initGlobalNoUnselectable (origin: Node & GlobalEventHandlers & ParentNode = document): void {
+  for (let i = 0; i < origin.children.length; i++) {
+    const child = origin.children[i];
+    initUnselectable(child);
+  }
+}
+
 Object.assign(window, {
   noSelectClass,
   noSelectHandler,
   initGlobalNoSelect,
+  initGlobalNoUnselectable,
 });
