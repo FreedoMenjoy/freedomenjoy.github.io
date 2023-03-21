@@ -2,7 +2,7 @@
 import { canvasGetImageDataAvgColor, distanceWeightConst, distanceWeightEuclidean, distanceWeightEuclidean2, type DistanceWeightFn, distanceWeightManhattan, distanceWeightManhattan2, CanvasUndoableRect, canvasMouseEventPosition } from './util/canvas';
 import { RGBColorToHex, type RGBColor } from './util/color';
 import { closestRGBColor } from './util/colorClosest';
-import { colorDistanceLabParamspaceSquare } from './util/colorDistance';
+import {  colorDistanceLabParamspaceSquare } from './util/colorDistance';
 import { colorNames } from './util/colorNames';
 import { colorNamesSimple } from './util/colorNamesSimple';
 import { addEventListenerMouseDownMove } from './util/EventListener';
