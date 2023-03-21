@@ -181,7 +181,7 @@
       </div>
       <h2 id="test">Тест</h2>
       <div class="text-interes">
-        <a href="#box" onclick="togglebox('#box');">
+        <a href="#box" onclick="toggleboxTests(12);">
           <div class="test-open">
             <p> Пройти тест </p>
           </div>
@@ -271,7 +271,7 @@
           </div>
           <div class="buttons">
             <button id="button" onclick="calculateScore(); openbox('.score');">Проверить</button>
-            <button id="button" onclick=" clearTests(); closebox('.score');">Сбросить ответы</button>
+            <button id="button" onclick="clearTests(); closebox('.score'); shuffleTests(12);">Сбросить ответы</button>
           </div>
           <div class="score" style="display: none;">
            <br>

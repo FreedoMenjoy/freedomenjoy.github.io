@@ -1,3 +1,4 @@
+import { togglebox } from './openbox';
 import { forceGetElementById, forceQuerySelector } from './util/forceQuerySelector';
 import { shuffleArray } from './util/math';
 
@@ -7,7 +8,7 @@ const scoreElement = forceGetElementById<HTMLSpanElement>('score');
 const totalElement = forceGetElementById<HTMLSpanElement>('total');
 
 export function shuffleTests (num = testElements.length): void {
-  for (const test of testElements) {
+  for (const test of Array.from(testBoxElement.childNodes)) {
     testBoxElement.removeChild(test);
   }
   const newTests = shuffleArray(testElements).slice(0, num);
@@ -45,9 +46,22 @@ export function clearTests (all = true): number {
   return tests.length;
 }
 
+export function toggleboxTests (num?: number): boolean {
+  const enabled = togglebox('#box');
+  console.log('toggleboxTests', enabled);
+  if (enabled) {
+    shuffleTests(num);
+    return true;
+  } else {
+    clearTests();
+    return false;
+  }
+}
+
 Object.assign(window, {
   testElements,
   shuffleTests,
   calculateScore,
   clearTests,
+  toggleboxTests,
 });
