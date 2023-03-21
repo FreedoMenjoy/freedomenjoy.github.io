@@ -90,6 +90,9 @@
         </span>
       </div>
       <h2 class="glavnaya">Инструкция</h2>
+       <div id="instruction">
+          <iframe src="https://scribehow.com/embed/Kak_polzovatsya_programmoj__f_Rr41qGTIuLM0g2eeH30w" width="100%" height="100%" allow="fullscreen" frameborder="0"></iframe>
+      </div>
   </main>
   <footer class="allowcopy">
     <div class="fot">
@@ -103,5 +106,16 @@
   <script src="./scripts/noCopy.ts"></script>
   <script>
     initGlobalNoSelect();
+  </script>
+  <script>
+        var frame = document.getElementById("Iframe");
+        frame.onload = function()
+        {
+          frame.style.height = 
+          frame.contentWindow.document.body.scrollHeight + 'px';
+         frame.style.width  = 
+          frame.contentWindow.document.body.scrollWidth+'px';
+              
+        }
   </script>
 </html>
