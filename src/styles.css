@@ -47,7 +47,7 @@ header {
   line-height: 50px;
 }
 
-nav {
+.menu-wrap nav {
   position: absolute;
   background-color: #3d4852;
   top: 70px;
@@ -55,18 +55,18 @@ nav {
   width: 100%;
 }
 
-nav ul {
+.menu-wrap nav ul {
   list-style-type: none;
   max-height: 0px;
   overflow: hidden;
   transition: all 0.5s;
 }
 
-nav ul li {
+.menu-wrap nav ul li {
   padding: 0 15px;
 }
 
-nav ul li a {
+.menu-wrap nav ul li a {
   display: inline-block;
   padding: 12px;
   color: #dae1e7;
@@ -76,13 +76,13 @@ nav ul li a {
 }
 
 @media (min-width: 768px) {
-  nav ul li a {
+  .menu-wrap nav ul li a {
     padding: inherit;
   }
 }
 
-nav ul li a:hover,
-nav ul li a:focus {
+.menu-wrap nav ul li a:hover,
+.menu-wrap nav ul li a:focus {
   transition: 0.5s;
   color: #878787;
 }
@@ -111,7 +111,7 @@ nav ul li a:focus {
   display: none;
 }
 
-#checkbox:checked ~ nav ul {
+.menu-wrap #checkbox:checked ~ nav ul {
   max-height: 200px;
   padding: 15px 0;
 }
@@ -123,19 +123,19 @@ nav ul li a:focus {
 }
 
 @media (min-width: 768px) {
-  nav {
+  .menu-wrap nav {
     position: relative;
     top: -10px;
     background-color: transparent;
   }
 
-  nav ul {
+  .menu-wrap nav ul {
     max-height: 70px;
     padding: 15px 0;
     text-align: right;
   }
 
-  nav ul li {
+  .menu-wrap nav ul li {
     display: inline-flex;
     padding-left: 20px;
   }
