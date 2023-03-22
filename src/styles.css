@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 html {
@@ -19,7 +19,7 @@ body {
 
 header {
   height: 70px;
-  background-color: #22292F;
+  background-color: #22292f;
   padding: 10px 0;
 }
 
@@ -49,7 +49,7 @@ header {
 
 nav {
   position: absolute;
-  background-color: #3D4852;
+  background-color: #3d4852;
   top: 70px;
   left: 0;
   width: 100%;
@@ -69,7 +69,7 @@ nav ul li {
 nav ul li a {
   display: inline-block;
   padding: 12px;
-  color: #DAE1E7;
+  color: #dae1e7;
   text-decoration: none;
   letter-spacing: 0.05em;
   font-size: 20px;
@@ -90,7 +90,7 @@ nav ul li a:focus {
 .maintext {
   color: white;
   font-size: 40px;
-  font-family: 'Secular One', sans-serif;
+  font-family: "Secular One", sans-serif;
   padding: inherit;
 }
 
@@ -111,7 +111,7 @@ nav ul li a:focus {
   display: none;
 }
 
-#checkbox:checked~nav ul {
+#checkbox:checked ~ nav ul {
   max-height: 200px;
   padding: 15px 0;
 }
@@ -162,7 +162,7 @@ nav ul li a:focus {
     height: 40px;
     margin-top: 3px;
     padding: inherit;
-    width: 450px
+    width: 450px;
   }
 }
 
@@ -645,7 +645,7 @@ footer {
 }
 
 .fot {
-  background-color: #22292F;
+  background-color: #22292f;
   padding-bottom: 7px;
   padding-top: 7px;
   padding-left: 0px;
@@ -670,7 +670,7 @@ footer {
   }
 
   .fot {
-    background-color: #22292F;
+    background-color: #22292f;
     padding-bottom: 7px;
     padding-top: 7px;
     padding-left: 0px;
@@ -696,7 +696,7 @@ footer {
   }
 
   .fot {
-    background-color: #22292F;
+    background-color: #22292f;
     padding-bottom: 7px;
     padding-top: 7px;
     padding-left: 0px;
@@ -722,7 +722,7 @@ footer {
   }
 
   .fot {
-    background-color: #22292F;
+    background-color: #22292f;
     padding-bottom: 5px;
     padding-top: 5px;
     padding-left: 0px;
@@ -735,7 +735,6 @@ footer {
     text-align: center;
   }
 }
-
 
 @media (max-width: 768px) {
   .menu-interes {
@@ -1223,7 +1222,7 @@ footer {
 }
 
 .test-open {
-  background-color: #22292F;
+  background-color: #22292f;
   color: white;
   padding: 20px;
   width: 150px;
@@ -1274,15 +1273,15 @@ footer {
 }
 
 .buttons {
-    width: 200px;
-    display: flex;
-    margin: 0 auto;
+  width: 200px;
+  display: flex;
+  margin: 0 auto;
 }
 #button {
   width: 90px;
   height: 60px;
   font-size: 16px;
-  background-color: #22292F;
+  background-color: #22292f;
   color: white;
   border-radius: 10px;
   margin: 0 20px;
@@ -1343,30 +1342,30 @@ footer {
 }
 
 @media (min-width: 800px) {
-#instruction {
-  margin: 0 200px;
-}
+  #instruction {
+    margin: 0 200px;
+  }
 }
 
 @media (max-width: 800px) {
-#instruction {
-  margin: 0 100px;
-}
+  #instruction {
+    margin: 0 100px;
+  }
 }
 @media (max-width: 600px) {
-#instruction {
-  margin: 0 50px;
-}
+  #instruction {
+    margin: 0 50px;
+  }
 }
 @media (max-width: 400px) {
-#instruction {
-  margin: 0 20px;
-}
+  #instruction {
+    margin: 0 20px;
+  }
 }
 @media (min-width: 1200px) {
-#instruction {
-  margin: 0 400px;
-}
+  #instruction {
+    margin: 0 400px;
+  }
 }
 
 .denycopy {
