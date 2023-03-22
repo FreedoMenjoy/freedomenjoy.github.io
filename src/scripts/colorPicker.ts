@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { canvasGetImageDataAvgColor, distanceWeightConst, distanceWeightEuclidean, distanceWeightEuclidean2, type DistanceWeightFn, distanceWeightManhattan, distanceWeightManhattan2, CanvasUndoableRect, canvasMouseEventPosition } from './util/canvas';
 import { RGBColorToHex, type RGBColor } from './util/color';
+import { ColorBlindnessMatrixesFns } from './util/colorBlindness';
 import { closestRGBColor } from './util/colorClosest';
 import { colorDistanceLabParamspaceSquare } from './util/colorDistance';
 import { colorNames } from './util/colorNames';
@@ -13,9 +14,11 @@ const sliderPointRadiusElement = forceGetElementById<HTMLInputElement>('input-po
 const selectPointDistFnElement = forceGetElementById<HTMLOptionElement>('select-point-dist-fn');
 const checkboxPointDraw = forceGetElementById<HTMLInputElement>('input-point-draw');
 const checkboxDrawZoom = forceGetElementById<HTMLInputElement>('input-draw-zoom');
+const selectColorBlindness = forceGetElementById<HTMLInputElement>('select-color-blindness');
 const fileInputElement = forceGetElementById<HTMLInputElement>('file-input');
 const canvas = forceGetElementById<HTMLCanvasElement>('canvas');
 const canvas2d: CanvasRenderingContext2D = canvas.getContext('2d', { willReadFrequently: true, alpha: false })!;
+let canvasImage = document.createElement('img');
 
 Object.assign(window, { canvas, canvas2d });
 const canvasRect = canvas.getBoundingClientRect();
@@ -54,30 +57,28 @@ function onFileInput (fileEvent: Event): void {
   reader.addEventListener('load', function onReaderLoad (readerEvent) {
     console.debug('file', file, readerEvent, reader.result);
     if (reader.result == null) return;
-    const img = document.createElement('img');
+    canvasImage = document.createElement('img');
     // Render thumbnail.
-    img.src = String(reader.result);
+    canvasImage.src = String(reader.result);
     // img.title = theFile.name;
 
-    img.addEventListener('load', function onImageLoad () {
-      console.debug(`img width:${img.width} height:${img.height}`);
+    canvasImage.addEventListener('load', function onImageLoad () {
+      console.debug(`img width:${canvasImage.width} height:${canvasImage.height}`);
 
-      const widthScale = img.width / canvasRect.width;
-      const heightScale = img.height / canvasRect.height;
+      const widthScale = canvasImage.width / canvasRect.width;
+      const heightScale = canvasImage.height / canvasRect.height;
       const maxScale = Math.max(widthScale, heightScale);
 
       const drawZoom = checkboxDrawZoom.checked;
 
-      const width = drawZoom ? img.width : Math.round(img.width / maxScale);
-      const height = drawZoom ? img.height : Math.round(img.height / maxScale);
+      const width = drawZoom ? canvasImage.width : Math.round(canvasImage.width / maxScale);
+      const height = drawZoom ? canvasImage.height : Math.round(canvasImage.height / maxScale);
 
       canvas.width = width;
       canvas.height = height;
-      canvas2d.drawImage(img, 0, 0, width, height);
+      redrawCanvas();
 
       canvasPixelRect = null;
-
-      img.remove();
     });
   });
 
@@ -154,6 +155,26 @@ function onMouseMove (e: MouseEvent): void {
     canvas2d.stroke();
   }
 }
+
+function redrawCanvas (): void {
+  canvas2d.drawImage(canvasImage, 0, 0, canvas.width, canvas.height);
+  const colorBlindnessFn: (color: RGBColor) => RGBColor = Reflect.get(ColorBlindnessMatrixesFns, selectColorBlindness.value);
+  const newCanvasData = canvas2d.getImageData(0, 0, canvas.width, canvas.height);
+  if (selectColorBlindness.value === 'normal' || colorBlindnessFn != null) {
+    const newCanvasDataData = newCanvasData.data;
+    for (let i = 0; i < newCanvasDataData.length; i += 4) {
+      const newColor = colorBlindnessFn([newCanvasDataData[i], newCanvasDataData[i + 1], newCanvasDataData[i + 2]]);
+      newCanvasDataData[i] = newColor[0];
+      newCanvasDataData[i + 1] = newColor[1];
+      newCanvasDataData[i + 2] = newColor[2];
+    }
+  }
+  canvas2d.putImageData(newCanvasData, 0, 0);
+}
+
+selectColorBlindness.addEventListener('change', () => {
+  redrawCanvas();
+});
 
 addEventListenerMouseDownMove(canvas, onMouseMove, { onmousedown: true, buttons: [1] });
 
