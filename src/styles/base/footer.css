@@ -1,0 +1,101 @@
+footer {
+  padding-top: 100px;
+  float: both;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.fot {
+  background-color: #22292f;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.fottext {
+  color: white;
+  text-align: center;
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  footer {
+    padding-top: 100px;
+    float: both;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .fot {
+    background-color: #22292f;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .fottext {
+    color: white;
+    text-align: center;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding-top: 100px;
+    float: both;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .fot {
+    background-color: #22292f;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .fottext {
+    font-size: 15px;
+    color: white;
+    text-align: center;
+  }
+}
+
+@media (max-width: 460px) {
+  footer {
+    padding-top: 100px;
+    float: both;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .fot {
+    background-color: #22292f;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .fottext {
+    font-size: 11px;
+    color: white;
+    text-align: center;
+  }
+}

@@ -1,0 +1,235 @@
+@import url(https://fonts.googleapis.com/css2?family=Oswald&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Oswald&family=Secular+One&display=swap);
+
+@import "./menu.css";
+@import "./footer.css";
+@import "./back-to-top.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+header {
+  height: 70px;
+  background-color: #22292f;
+  padding: 10px 0;
+}
+
+h1 {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+  color: #404040;
+}
+
+main {
+  margin-top: 100px;
+}
+
+@media (min-width: 460px) {
+  h1 {
+    font-size: 35px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  h2 {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 50px;
+    color: #404040;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 50px;
+    color: #404040;
+  }
+}
+
+@media (min-width: 1080px) {
+  h1 {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 60px;
+    color: #404040;
+  }
+}
+
+@media (max-width: 768px) {
+  h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 450px) {
+  h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 422px) {
+  h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1100px) {
+  h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-in-block {
+    font-size: 17px;
+    margin: 40px auto 0 auto;
+    flex-wrap: wrap;
+    width: 400px;
+  }
+
+  .text-in-block1 {
+    font-size: 17px;
+    display: block;
+    text-align: start;
+    width: 400px;
+  }
+}
+
+@media (max-width: 450px) {
+  .text-in-block {
+    font-size: 16px;
+    flex-wrap: wrap;
+    margin: 40px auto 0 auto;
+    width: 300px;
+  }
+
+  .text-in-block1 {
+    font-size: 16px;
+    display: block;
+    text-align: start;
+    width: 300px;
+  }
+}
+
+@media (max-width: 422px) {
+  .text-in-block {
+    font-size: 16px;
+    flex-wrap: wrap;
+    margin: 40px auto 0 auto;
+    width: 280px;
+  }
+
+  .text-in-block1 {
+    font-size: 16px;
+    display: block;
+    text-align: start;
+    width: 280px;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-in-block {
+    font-size: 16px;
+    margin: 40px auto 0 auto;
+    width: 700px;
+  }
+
+  .text-in-block1 {
+    font-size: 16px;
+    display: inline-block;
+    text-align: start;
+    width: 300px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .text-in-block {
+    font-size: 17px;
+    margin: 40px auto 0 auto;
+    width: 1000px;
+  }
+
+  .text-in-block1 {
+    font-size: 17px;
+    display: inline-block;
+    text-align: start;
+    width: 500px;
+  }
+}
+
+.denycopy {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  /*
+    Introduced in Internet Explorer 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.allowcopy {
+  -moz-user-select: text;
+  -khtml-user-select: text;
+  -webkit-user-select: text;
+
+  /*
+    Introduced in Internet Explorer 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: text;
+  user-select: text;
+}

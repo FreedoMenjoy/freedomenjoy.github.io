@@ -1,0 +1,82 @@
+@import "./base/common.css";
+
+.canvas {
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.colour-name {
+  margin-left: 10px;
+}
+
+@media (min-width: 600px) {
+  #canvas {
+    border: 1px solid black;
+    width: auto;
+    height: auto;
+  }
+
+  .check-colour {
+    margin: 0 auto;
+    width: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  #canvas {
+    border: 1px solid black;
+    width: 80%;
+    height: 80%;
+  }
+
+  .check-colour {
+    margin: 0 auto;
+    width: 200px;
+  }
+}
+
+.glavnaya {
+  margin-bottom: 50px;
+}
+
+.main-text p {
+  margin-bottom: 70px;
+}
+
+#instruction {
+  width: auto;
+  height: 640px;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+@media (min-width: 800px) {
+  #instruction {
+    margin: 0 200px;
+  }
+}
+
+@media (max-width: 800px) {
+  #instruction {
+    margin: 0 100px;
+  }
+}
+@media (max-width: 600px) {
+  #instruction {
+    margin: 0 50px;
+  }
+}
+@media (max-width: 400px) {
+  #instruction {
+    margin: 0 20px;
+  }
+}
+@media (min-width: 1200px) {
+  #instruction {
+    margin: 0 400px;
+  }
+}

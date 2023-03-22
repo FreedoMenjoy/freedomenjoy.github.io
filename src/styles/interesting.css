@@ -1,0 +1,330 @@
+@import "./base/common.css";
+
+@media (max-width: 768px) {
+  .menu-interes {
+    color: black;
+    margin: 40px auto 0 auto;
+    width: 400px;
+    font-size: 17px;
+  }
+
+  .menu-interes a:link,
+  .menu-interes a:visited {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+  }
+
+  .menu-interes a:hover,
+  .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+  }
+
+  .main-kartinka {
+    display: block;
+  }
+
+  .glaz {
+    width: 90%;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 60%;
+  }
+
+  .xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+  }
+}
+
+@media (max-width: 450px) {
+  .menu-interes {
+    color: black;
+    margin: 40px auto 0 auto;
+    width: 250px;
+    font-size: 16px;
+  }
+
+  .menu-interes a:link,
+  .menu-interes a:visited {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+  }
+
+  .menu-interes a:hover,
+  .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+  }
+
+  .main-kartinka {
+    display: block;
+  }
+
+  .glaz {
+    width: 90%;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 90%;
+  }
+
+  .xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+  }
+}
+
+@media (max-width: 422px) {
+  .menu-interes {
+    color: black;
+    margin: 40px auto 0 auto;
+    width: 230px;
+    font-size: 16px;
+  }
+
+  .menu-interes a:link,
+  .menu-interes a:visited {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+  }
+
+  .menu-interes a:hover,
+  .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+  }
+
+  .main-kartinka {
+    display: block;
+  }
+
+  .glaz {
+    width: 80%;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 80%;
+  }
+
+  .xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .menu-interes {
+    color: black;
+    margin: 40px auto 0 auto;
+    width: 700px;
+  }
+
+  .menu-interes a:link,
+  .menu-interes a:visited {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+  }
+
+  .menu-interes a:hover,
+  .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+  }
+
+  .glaz {
+    width: 90%;
+    display: inline-block;
+    margin-left: 50px;
+  }
+
+  .container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 40%;
+  }
+
+  .xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+  }
+}
+
+@media (min-width: 1100px) {
+  .menu-interes {
+    color: black;
+    margin: 40px auto 0 auto;
+    width: 1000px;
+  }
+
+  .menu-interes a:link,
+  .menu-interes a:visited {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+  }
+
+  .menu-interes a:hover,
+  .menu-interes a:focus {
+    color: #878787;
+    transition: 0.5s;
+  }
+
+  .glaz {
+    width: 70%;
+    display: inline-block;
+    margin-left: 100px;
+  }
+
+  .container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .daltonizm {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    width: 30%;
+  }
+
+  .xudozhniki-kartini {
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+  }
+}
+
+.block {
+  margin-top: 10px;
+}
+
+.test-open {
+  background-color: #22292f;
+  color: white;
+  padding: 20px;
+  width: 150px;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.text-interes a:link,
+.text-interes a:visited {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+}
+
+#box {
+  justify-content: center;
+  text-align: center;
+}
+
+#test {
+  margin-top: 70px;
+}
+
+#test-box {
+  margin-top: 70px;
+}
+
+#test-box div {
+  margin-bottom: 30px;
+}
+
+.correct {
+  border: 1px solid green;
+}
+
+.incorrect {
+  border: 1px solid red;
+}
+
+.imgtest {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  margin: 35px auto;
+}
+
+.buttons {
+  width: 200px;
+  display: flex;
+  margin: 0 auto;
+}
+
+#button {
+  width: 90px;
+  height: 60px;
+  font-size: 16px;
+  background-color: #22292f;
+  color: white;
+  border-radius: 10px;
+  margin: 0 20px;
+}
