@@ -107,11 +107,11 @@ header {
   padding-right: 15px;
 }
 
-#checkbox {
+#menu-checkbox {
   display: none;
 }
 
-.menu-wrap #checkbox:checked ~ nav ul {
+.menu-wrap #menu-checkbox:checked ~ nav ul {
   max-height: 200px;
   padding: 15px 0;
 }
