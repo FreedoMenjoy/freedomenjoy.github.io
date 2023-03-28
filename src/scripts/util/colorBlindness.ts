@@ -71,7 +71,7 @@ export function makeRGBToColorBlind (matrix: number[][]): (rgb: RGBColor) => RGB
 }
 
 export const ColorBlindnessMatrixesFns: Record<string, (rgb: RGBColor) => RGBColor> = Object.fromEntries(
-  Object.keys(ColorBlindnessMatrixes).map(key => ([key, makeRGBToColorBlind(ColorBlindnessMatrixes[key], key)])),
+  Object.keys(ColorBlindnessMatrixes).map(key => ([key, makeRGBToColorBlind(ColorBlindnessMatrixes[key])])),
 );
 
 Object.assign(window, {
