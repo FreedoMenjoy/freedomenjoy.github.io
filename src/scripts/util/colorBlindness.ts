@@ -2,64 +2,71 @@ import { type RGBColor } from './color';
 
 export const ColorBlindnessMatrixes: Record<string, number[][]> = {
   normal: [
-    [100, 0, 0],
-    [0, 100, 0],
-    [0, 0, 100],
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1],
   ],
   protanopia: [
-    [56.667, 43.333, 0],
-    [55.833, 44.167, 0],
-    [0, 24.167, 75.833],
+    [0.56667, 0.43333, 0],
+    [0.55833, 0.44167, 0],
+    [0, 0.24167, 0.75833],
   ],
   protanomaly: [
-    [81.667, 18.333, 0],
-    [33.333, 66.667, 0],
-    [0, 12.5, 87.5],
+    [0.81667, 0.18333, 0],
+    [0.33333, 0.66667, 0],
+    [0, 0.125, 0.875],
   ],
   deuteranopia: [
-    [62.5, 37.5, 0],
-    [70, 30, 0],
-    [0, 30, 70],
+    [0.625, 0.375, 0],
+    [0.70, 0.30, 0],
+    [0, 0.30, 0.70],
   ],
   deuteranomaly: [
-    [80, 20, 0],
-    [25.833, 74.167, 0],
-    [0, 14.167, 85.833],
+    [0.80, 0.20, 0],
+    [0.25833, 0.74167, 0],
+    [0, 0.14167, 0.85833],
   ],
   tritanopia: [
-    [95, 5, 0],
-    [0, 43.333, 56.667],
-    [0, 47.5, 52.5],
+    [0.95, 0.05, 0],
+    [0, 0.43333, 0.56667],
+    [0, 0.475, 0.525],
   ],
   tritanomaly: [
-    [96.667, 3.333, 0],
-    [0, 73.333, 26.667],
-    [0, 18.333, 81.667],
+    [0.96667, 0.03333, 0],
+    [0, 0.73333, 0.26667],
+    [0, 0.18333, 0.81667],
   ],
   achromatopsia: [
-    [29.9, 58.7, 11.4],
-    [29.9, 58.7, 11.4],
-    [29.9, 58.7, 11.4],
+    [0.299, 0.587, 0.114],
+    [0.299, 0.587, 0.114],
+    [0.299, 0.587, 0.114],
   ],
   achromatomaly: [
-    [61.8, 32, 6.2],
-    [16.3, 77.5, 6.2],
-    [16.3, 32.0, 51.6],
+    [0.618, 0.32, 0.062],
+    [0.163, 0.775, 0.062],
+    [0.163, 0.320, 0.516],
   ],
 };
 
 export function RGBToColorBlind (rgb: RGBColor, matrix: number[][]): RGBColor {
   const [r, g, b] = rgb;
+  const [matrixR, matrixG, matrixB] = matrix;
   return [
-    r * matrix[0][0] / 100.0 + g * matrix[0][1] / 100.0 + b * matrix[0][2] / 100.0,
-    r * matrix[1][0] / 100.0 + g * matrix[1][1] / 100.0 + b * matrix[1][2] / 100.0,
-    r * matrix[2][0] / 100.0 + g * matrix[2][1] / 100.0 + b * matrix[2][2] / 100.0,
+    r * matrixR[0] + g * matrixR[1] + b * matrixR[2],
+    r * matrixG[0] + g * matrixG[1] + b * matrixG[2],
+    r * matrixB[0] + g * matrixB[1] + b * matrixB[2],
   ];
 }
 
-export function makeRGBToColorBlind (matrix: number[][], name?: string): (rgb: RGBColor) => RGBColor {
+export function makeRGBToColorBlind (matrix: number[][]): (rgb: RGBColor) => RGBColor {
+  const [matrixR, matrixG, matrixB] = matrix;
   return function _RGBToColorBlind (rgb: RGBColor): RGBColor {
-    return RGBToColorBlind(rgb, matrix);
+    const [r, g, b] = rgb;
+    return [
+      r * matrixR[0] + g * matrixR[1] + b * matrixR[2],
+      r * matrixG[0] + g * matrixG[1] + b * matrixG[2],
+      r * matrixB[0] + g * matrixB[1] + b * matrixB[2],
+    ];
   };
 }
 
